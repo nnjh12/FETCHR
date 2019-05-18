@@ -32,19 +32,20 @@
     </form>
 
     <script>
-        $.get("/api/breedresults", function (data) {
+        var id = 1
+        $.get("/api/users/" + id, function (data) {
             console.log(data)
-            var breedName;
-            var breedImgSrc;
+            // var breedName;
+            // var breedImgSrc;
 
-            for (var i = 0; i < 3; i++) {
-                // key need to be updated
-                breedName = data[i].key
-                breedImgSrc = data[i].key
+            // for (var i = 0; i < 3; i++) {
+            //     // key need to be updated
+            //     breedName = data[i].key
+            //     breedImgSrc = data[i].key
                 
-                $("#breedName" + (i + 1)).text(breedName)
-                $("#breedImg" + (i + 1)).attr("src", breedImgSrc)
-            }
+            //     $("#breedName" + (i + 1)).text(breedName)
+            //     $("#breedImg" + (i + 1)).attr("src", breedImgSrc)
+            // }
         })
 
     </script>

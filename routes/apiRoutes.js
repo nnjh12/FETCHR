@@ -1,24 +1,45 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+module.exports = function (app) {
+  // Get specific users data
+  app.get("/api/user/:userId", function (req, res) {
+    db.user.findAll({ where: { id: req.params.userId } }).then(function (data) {
+      res.json(data);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Post users data
+  app.post("/api/user", function (req, res) {
+    db.user.create(req.body).then(function (data) {
+      res.json(data);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Get survey data of specific user
+  app.get("/api/survey/:userId", function (req, res) {
+    db.survey.findAll({ where: { id: req.params.userId } }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Post survey data
+  app.post("/api/survey", function (req, res) {
+    db.survey.create(req.body).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Get breed results data of specific user
+  app.get("/api/breedmatch/:userId", function (req, res) {
+    db.breedMatch.findAll({ where: { id: req.params.userId } }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Post survey data
+  app.post("/api/survey", function (req, res) {
+    db.survey.create(req.body).then(function (data) {
+      res.json(data);
     });
   });
 };
