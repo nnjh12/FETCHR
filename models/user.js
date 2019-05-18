@@ -3,6 +3,6 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     zipcode: DataTypes.INTEGER(6),
   });
-  return user;
+  return User;
 
 };
