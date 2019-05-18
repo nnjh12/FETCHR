@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
-    name: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER(6),
+  var Survey = sequelize.define("survey", {
+    user_id: DataTypes.INTEGER,
     question1: DataTypes.INTEGER,
     question2: DataTypes.INTEGER,
     question3: DataTypes.INTEGER,
@@ -16,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
     question12: DataTypes.INTEGER,
     question13: DataTypes.INTEGER
   });
-  return User;
+  return Survey;
 };
