@@ -1,7 +1,21 @@
-INSERT INTO Users (name, zipcode, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13)
-VALUES ("Alec", 19146, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-        ("Ben Franklin", 19103, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2),
-        ("Will Smith", 19119, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2);
+INSERT INTO users (name, zipcode)
+VALUES ("Alec", 19146),
+        ("Ben Franklin", 19103),
+        ("Will Smith", 19119);
+
+INSERT INTO surveys (user_id, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13);
+VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1),
+        (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1),
+        (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1);  
+
+INSERT INTO breedMatches (user_id, survey_id, breed_id);
+VALUES (1, 1, 1),
+        (1, 1, 2),
+        (1, 1, 3), 
+        (2, 2, 4),
+        (2, 2, 5);             
+
+    
 
 
 INSERT INTO breeds (breed_name, attribute, score) 
