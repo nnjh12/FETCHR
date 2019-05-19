@@ -1,5 +1,13 @@
-// var db = require("../models");
-var path = require("path");
+var express = require("express");
+
+var router = express.Router();
+
+// Import the model (cat.js) to use its database functions.
+var survey = require("../models/survey");
+var survey = require("../models/survey");
+var survey = require("../models/survey");
+var survey = require("../models/survey");
+var survey = require("../models/survey");
 
 module.exports = function(app) {
   // Load index page

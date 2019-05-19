@@ -3,6 +3,10 @@ module.exports = function(sequelize, DataTypes) {
     user_id: DataTypes.INTEGER,
     survey_id: DataTypes.INTEGER,
     breed_id: DataTypes.INTEGER
-  });
+  },
+  {
+    timestamps: false
+  }
+  );
   return BreedMatch;
 };

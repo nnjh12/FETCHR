@@ -3,19 +3,70 @@ VALUES ("Alec", 19146),
         ("Ben Franklin", 19103),
         ("Will Smith", 19119);
 
-INSERT INTO surveys (user_id, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13);
+INSERT INTO surveys (user_id, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13)
 VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1),
         (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1),
         (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1);  
 
-INSERT INTO breedMatches (user_id, survey_id, breed_id);
+INSERT INTO breed_matches (user_id, survey_id, breed_id)
 VALUES (1, 1, 1),
         (1, 1, 2),
         (1, 1, 3), 
         (2, 2, 4),
-        (2, 2, 5);             
+        (2, 2, 5);       
 
-    
+
+INSERT INTO questions (question)
+VALUES ("What type of home do you live in?"),
+       ("Do you have a yard?"),
+       ("What type of environment do you live in?"),
+       ("How many people live in your home?"),
+       ("Do you have small children?"),
+       ("How active are you?"),
+       ("What type of energy level dog are you looking for?"),
+       ("What size dog are you looking for?"),
+       ("Do you want a dog that will protect your property?"),
+       ("How much shedding are you willing to live with?"),
+       ("Fill in later"),
+       ("Fill in later"),
+       ("Have you owned a dog before?");
+
+INSERT INTO choices (question_id,choice)
+VALUES (1, "Apartment"),
+       (1, "Small Home"),
+       (1, "Large Home"),
+       (2, "Yes"),
+       (2, "No"),
+       (3, "Urban"),
+       (3, "Suburb"),
+       (3, "Rural"),
+       (4, "Myself"),
+       (4, "More than 2"),
+       (4, "More than 5"),
+       (5, "Yes"),
+       (5, "No"),
+       (5, "No but we want to have a baby soon"),
+       (6, "Not Very"),
+       (6, "Slightly Active"),
+       (6, "Moderately Active"),
+       (6, "Very Active"),
+       (7, "Let's binge watch everything on Netflix"),
+       (7, "Let's go for a walk..but just not too far"),
+       (7, "What do you mean you're tired? It's only been 5 hours"),
+       (8, "Small enough to fit in a bag"),
+       (8, "Not tiny, but still fits in my lap"),
+       (8, "Too big for my lap, but not too big for a large dog door"),
+       (8, "I want people to question if it's a bear"),
+       (9, "No, I want a cream puff"),
+       (9, "I want a bark or two to warn me of people outside"),
+       (9, "I want strangers to think twice before trying to enter"),
+       (10, "As little as possible"),
+       (10, "I don't mind having to do a quick lint roll before leaving the house"),
+       (10, "The fluffier the better!"),
+       (11, "Fill in later"),
+       (12, "Fill in later"),
+       (13, "Yes"), 
+       (13, "No");       
 
 
 INSERT INTO breeds (breed_name, attribute, score) 
@@ -270,7 +321,8 @@ VALUES
     ('black mouth cur','Amount Of Shedding',3),
     ('black mouth cur','Size',4),
     ('black mouth cur','Easy To Train',3);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('black mouth cur','Energy Level',4),
     ('black mouth cur','Exercise Needs',5),
     ('bloodhound','Adapts Well to Apartment Living',1),
@@ -521,7 +573,8 @@ INSERT INTO breeds VALUES
     ('chesapeake bay retriever','Incredibly Kid Friendly Dogs',3),
     ('chesapeake bay retriever','Dog Friendly',1),
     ('chesapeake bay retriever','Amount Of Shedding',5);
-INSERT INTO breeds VALUES
+INSERT INTO breeds 
+(breed_name, attribute, score) VALUES
     ('chesapeake bay retriever','Size',3),
     ('chesapeake bay retriever','Easy To Train',3),
     ('chesapeake bay retriever','Energy Level',5),
@@ -772,7 +825,8 @@ INSERT INTO breeds VALUES
     ('english toy spaniel','Tolerates Being Alone',1),
     ('english toy spaniel','Affectionate with Family',5),
     ('english toy spaniel','Incredibly Kid Friendly Dogs',1);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('english toy spaniel','Dog Friendly',4),
     ('english toy spaniel','Amount Of Shedding',5),
     ('english toy spaniel','Size',2),
@@ -1023,7 +1077,8 @@ INSERT INTO breeds VALUES
     ('irish setter','Good For Novice Owners',3),
     ('irish setter','Sensitivity Level',4),
     ('irish setter','Tolerates Being Alone',2);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('irish setter','Affectionate with Family',5),
     ('irish setter','Incredibly Kid Friendly Dogs',5),
     ('irish setter','Dog Friendly',5),
@@ -1274,7 +1329,8 @@ INSERT INTO breeds VALUES
     ('newfoundland','Exercise Needs',3),
     ('norfolk terrier','Adapts Well to Apartment Living',4),
     ('norfolk terrier','Good For Novice Owners',5);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('norfolk terrier','Sensitivity Level',4),
     ('norfolk terrier','Tolerates Being Alone',3),
     ('norfolk terrier','Affectionate with Family',5),
@@ -1525,7 +1581,8 @@ INSERT INTO breeds VALUES
     ('saint bernard','Easy To Train',2),
     ('saint bernard','Energy Level',3),
     ('saint bernard','Exercise Needs',2);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('saluki','Adapts Well to Apartment Living',1),
     ('saluki','Good For Novice Owners',2),
     ('saluki','Sensitivity Level',5),
@@ -1776,7 +1833,8 @@ INSERT INTO breeds VALUES
     ('yorkshire terrier','Amount Of Shedding',2),
     ('yorkshire terrier','Size',1),
     ('yorkshire terrier','Easy To Train',3);
-INSERT INTO breeds VALUES
+INSERT INTO breeds (breed_name, attribute, score) 
+VALUES
     ('yorkshire terrier','Energy Level',5),
     ('yorkshire terrier','Exercise Needs',4),
     ('karelian bear dog','Adapts Well to Apartment Living',2),
