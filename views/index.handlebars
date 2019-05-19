@@ -1,5 +1,11 @@
 <div class="container">
-<h1>Hi</h1>
+  <div class ="row">
+    <div class="col s8">
+      {{#each questions}}
+        <h1 class="question" data="{{id}}">{{this.question}}</h1>
+      {{/each}}  
+    </div>
+  </div>
 </div>
 
 
@@ -12,7 +18,7 @@
 
 
 
-<div id="home">
+{{!-- <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -44,4 +50,4 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/index.js"></script> --}}
