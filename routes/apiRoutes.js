@@ -1,51 +1,55 @@
 var db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Get specific users data
-  app.get("/api/user/:userId", function (req, res) {
-    db.user.findAll({ where: { id: req.params.userId } }).then(function (data) {
+  app.get("/api/user/:userId", function(req, res) {
+    db.user.findAll({ where: { id: req.params.userId } }).then(function(data) {
       res.json(data);
     });
   });
 
   // Post users data
-  app.post("/api/user", function (req, res) {
-    db.user.create(req.body).then(function (data) {
+  app.post("/api/user", function(req, res) {
+    db.user.create(req.body).then(function(data) {
       res.json(data);
     });
   });
 
   // Get survey data of specific user
-  app.get("/api/survey/:userId", function (req, res) {
-    db.survey.findAll({ where: { id: req.params.userId } }).then(function (data) {
-      res.json(data);
-    });
+  app.get("/api/survey/:userId", function(req, res) {
+    db.survey
+      .findAll({ where: { id: req.params.userId } })
+      .then(function(data) {
+        res.json(data);
+      });
   });
 
   // Post survey data
-  app.post("/api/survey", function (req, res) {
-    db.survey.create(req.body).then(function (data) {
+  app.post("/api/survey", function(req, res) {
+    db.survey.create(req.body).then(function(data) {
       res.json(data);
     });
   });
 
-  // Get breed results data of specific user
-  app.get("/api/breedmatch/:userId", function (req, res) {
-    db.breed_matche.findAll({ where: { id: req.params.userId } }).then(function (data) {
+  // Get breed match results of specific user
+  app.get("/api/breedmatch/:userId", function(req, res) {
+    db.breed_matche
+      .findAll({ where: { id: req.params.userId } })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+
+  // Post breed match results
+  app.post("/api/breedmatch", function(req, res) {
+    db.breed_matche.create(req.body).then(function(data) {
       res.json(data);
     });
   });
 
-  // Post survey data
-  app.post("/api/breedmatch", function (req, res) {
-    db.breed_matche.create(req.body).then(function (data) {
-      res.json(data);
-    });
-  });
-
-  // Get breed results data of specific user
-  app.get("/api/breed", function (req, res) {
-    db.breed.findAll({}).then(function (data) {
+  // Get breed data
+  app.get("/api/breed", function(req, res) {
+    db.breed.findAll({}).then(function(data) {
       res.json(data);
     });
   });
