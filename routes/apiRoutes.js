@@ -31,14 +31,21 @@ module.exports = function (app) {
 
   // Get breed results data of specific user
   app.get("/api/breedmatch/:userId", function (req, res) {
-    db.breedMatch.findAll({ where: { id: req.params.userId } }).then(function (data) {
+    db.breed_matche.findAll({ where: { id: req.params.userId } }).then(function (data) {
       res.json(data);
     });
   });
 
   // Post survey data
-  app.post("/api/survey", function (req, res) {
-    db.survey.create(req.body).then(function (data) {
+  app.post("/api/breedmatch", function (req, res) {
+    db.breed_matche.create(req.body).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  // Get breed results data of specific user
+  app.get("/api/breed", function (req, res) {
+    db.breed.findAll({}).then(function (data) {
       res.json(data);
     });
   });
