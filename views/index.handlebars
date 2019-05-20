@@ -1,15 +1,30 @@
 <div class="container">
   <div class ="row">
     <div class="col s8">
-      {{#each questions}}
-        <h1 class="question" data="{{id}}">{{this.question}}</h1>
-      {{/each}}  
+      {{#each questionAndChoice}}
+      <div class="input-field col s12">
+        <select>
+        <option value="" disabled selected>Choose your option</option>
+        {{#each choice}}
+        <option value="{{this.id}}">{{this.choice}}</option>
+        {{/each}}
+        </select>
+        <label class="question" data="{{this.question_id}}">{{this.question}}</label>
+      </div>
+      {{/each}}
     </div>
   </div>
 </div>
 
 
+<script>
+  
+  $('select').formSelect();
+  
+  var instance = M.FormSelect.getInstance(elem);
+  
 
+</script>
 
 
 

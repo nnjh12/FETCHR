@@ -8,12 +8,27 @@ module.exports = function(app) {
     //   res.render("index", {
     //     question: dbQuestions
     //   });
-    db.question.findAll({}).then(function(dbQuestions) {
-      console.log(dbQuestions);
-      res.render("index", {
-        questions: dbQuestions
+    // db.question.findAll({}).then(function(dbQuestions) {
+    //   console.log(dbQuestions);
+    //   res.render("index", {
+    //     questions: dbQuestions
+    //   });
+    // db.choice.findAll({}).then(function(dbChoices) {
+    //   console.log(dbQuestions);
+    //   res.render("index", {
+    //     choices: dbChoices
+    //   });  
+    // });
+    db.question.hasMany(db.choice, { as: "choices", foreignKey: "id" });
+    db.choice.belongsTo(db.question, { foreignKey: "id" });
+    db.choice
+      .findAll({ include: [db.question] })
+      .then(function(dbQuestionAndChoice) {
+        console.log(dbQuestionAndChoice);
+        res.render("index", {
+          questionAndChoice: dbQuestionAndChoice
+        });
       });
-    });
   });
 
   // Load breed results page
