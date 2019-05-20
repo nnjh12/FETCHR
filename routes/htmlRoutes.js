@@ -8,14 +8,14 @@ module.exports = function(app) {
 //       res.render("index", {
 //         question: dbQuestions
 //       });
-    db.choice
+    db.question
       .findAll({
-        // include: [db.question]
+        include: [db.choice]
       })
       .then(function(dbQuestions) {
         console.log(dbQuestions);
         res.render("index", {
-          questions: dbQuestions
+          questionsAndChoices: dbQuestions
         });
       });
 //     db.choice.findAll({}).then(function(dbChoices) {
