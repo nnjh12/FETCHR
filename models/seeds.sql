@@ -15,7 +15,6 @@ VALUES (1, 1, 1),
         (2, 2, 4),
         (2, 2, 5);       
 
-
 INSERT INTO questions (question)
 VALUES ("What type of home do you live in?"),
        ("Do you have a yard?"),
@@ -574,6 +573,7 @@ VALUES
     ('chesapeake bay retriever','Incredibly Kid Friendly Dogs',3),
     ('chesapeake bay retriever','Dog Friendly',1),
     ('chesapeake bay retriever','Amount Of Shedding',5);
+
 INSERT INTO breeds 
 (breed_name, attribute, score) VALUES
     ('chesapeake bay retriever','Size',3),
