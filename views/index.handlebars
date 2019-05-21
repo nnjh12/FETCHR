@@ -1,17 +1,30 @@
 <div class="container">
   <div class ="row">
     <div class="col s8">
+      <h1>{{question}}</h1>
+      
       {{#each questionsAndChoices}}
       <div class="input-field col s12">
         <select>
         <option value="" disabled selected>Choose your option</option>
-        {{#each question.choices.choice}}
+        {{#each this.choices}}
+        <option value="{{this.id}}">{{this.choice}}</option>
+        {{/each}}
+        </select>
+        <label class="question" data="{{this.id}}">{{this.question}}</label>
+      </div>
+      {{/each}}
+      {{!-- {{#each questionsAndChoices}}
+      <div class="input-field col s12">
+        <select>
+        <option value="" disabled selected>Choose your option</option>
+        {{#each question.choices}}
         <option value="{{this.id}}">{{choice.choice}}</option>
         {{/each}}
         </select>
         <label class="question" data="{{question.id}}">{{question.question}}</label>
       </div>
-      {{/each}}
+      {{/each}} --}}
     </div>
   </div>
 </div>
