@@ -13,7 +13,61 @@ VALUES (1, 1, 1),
         (1, 1, 2),
         (1, 1, 3), 
         (2, 2, 4),
-        (2, 2, 5);             
+        (2, 2, 5);       
+
+INSERT INTO questions (question)
+VALUES ("What type of home do you live in?"),
+       ("Do you have a yard?"),
+       ("What type of environment do you live in?"),
+       ("How many people live in your home?"),
+       ("Do you have small children?"),
+       ("How active are you?"),
+       ("What type of energy level dog are you looking for?"),
+       ("What size dog are you looking for?"),
+       ("Do you want a dog that will protect your property?"),
+       ("How much shedding are you willing to live with?"),
+       ("Fill in later 1"),
+       ("Fill in later 2"),
+       ("Have you owned a dog before?");
+
+INSERT INTO choices (questionId, choice)
+VALUES ( 
+(SELECT id FROM questions WHERE question = "What type of home do you live in?"),"Apartment"),
+((SELECT id FROM questions WHERE question = "What type of home do you live in?"),"Small Home"),
+((SELECT id FROM questions WHERE question = "What type of home do you live in?"),"Large Home"),
+((SELECT id FROM questions WHERE question = "Do you have a yard?"),"Yes"),
+((SELECT id FROM questions WHERE question = "Do you have a yard?"),"No"),
+((SELECT id FROM questions WHERE question = "What type of environment do you live in?"),"Urban"),
+((SELECT id FROM questions WHERE question = "What type of environment do you live in?"),"Suburb"),
+((SELECT id FROM questions WHERE question = "What type of environment do you live in?"),"Rural"),
+((SELECT id FROM questions WHERE question = "How many people live in your home?"),"Myself"),
+((SELECT id FROM questions WHERE question = "How many people live in your home?"),"2 - 3"),
+((SELECT id FROM questions WHERE question = "How many people live in your home?"),"3 or More"),
+((SELECT id FROM questions WHERE question = "Do you have small children?"),"Yes"),
+((SELECT id FROM questions WHERE question = "Do you have small children?"),"No"),
+((SELECT id FROM questions WHERE question = "Do you have small children?"),"No, but we want to have a baby soon"),
+((SELECT id FROM questions WHERE question = "How active are you?"),"Not Very"),
+((SELECT id FROM questions WHERE question = "How active are you?"),"Slightly Active"),
+((SELECT id FROM questions WHERE question = "How active are you?"),"Moderately Active"),
+((SELECT id FROM questions WHERE question = "How active are you?"),"Very Active"),
+((SELECT id FROM questions WHERE question = "What type of energy level dog are you looking for?"),"Let's binge watch everything on Netflix"),
+((SELECT id FROM questions WHERE question = "What type of energy level dog are you looking for?"),"Let's go for a walk..but just not too far"),
+((SELECT id FROM questions WHERE question = "What type of energy level dog are you looking for?"),"What do you mean you're tired? It's only been 5 hours"),
+((SELECT id FROM questions WHERE question = "What size dog are you looking for?"),"Small enough to fit in a bag"),
+((SELECT id FROM questions WHERE question = "What size dog are you looking for?"),"Not tiny, but still fits in my lap"),
+((SELECT id FROM questions WHERE question = "What size dog are you looking for?"),"Too big for my lap, but not too big for a large dog door"),
+((SELECT id FROM questions WHERE question = "What size dog are you looking for?"),"I want people to question if it's a bear"),
+((SELECT id FROM questions WHERE question = "Do you want a dog that will protect your property?"),"No, I want a cream puff"),
+((SELECT id FROM questions WHERE question = "Do you want a dog that will protect your property?"),"I want a bark or two to warn me of people outside"),
+((SELECT id FROM questions WHERE question = "Do you want a dog that will protect your property?"),"I want strangers to think twice before trying to enter"),
+((SELECT id FROM questions WHERE question = "How much shedding are you willing to live with?"),"As little as possible"),
+((SELECT id FROM questions WHERE question = "How much shedding are you willing to live with?"),"I don't mind having to do a quick lint roll before leaving the house"),
+((SELECT id FROM questions WHERE question = "How much shedding are you willing to live with?"),"The fluffier the better!"),
+((SELECT id FROM questions WHERE question = "Fill in later 1"),"Fill in later"),
+((SELECT id FROM questions WHERE question = "Fill in later 2"),"Fill in later"),
+((SELECT id FROM questions WHERE question = "Have you owned a dog before?"),"Yes"),
+((SELECT id FROM questions WHERE question = "Have you owned a dog before?"),"No");      
+
 
 INSERT INTO breeds (breed_name, attribute, score) 
 VALUES
@@ -519,8 +573,9 @@ VALUES
     ('chesapeake bay retriever','Incredibly Kid Friendly Dogs',3),
     ('chesapeake bay retriever','Dog Friendly',1),
     ('chesapeake bay retriever','Amount Of Shedding',5);
-INSERT INTO breeds (breed_name, attribute, score) 
-VALUES
+
+INSERT INTO breeds 
+(breed_name, attribute, score) VALUES
     ('chesapeake bay retriever','Size',3),
     ('chesapeake bay retriever','Easy To Train',3),
     ('chesapeake bay retriever','Energy Level',5),

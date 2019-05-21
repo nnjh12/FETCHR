@@ -1,10 +1,21 @@
-// var db = require("../models");
-var path = require("path");
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
+
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    db.question
+      .findAll({
+        include: [db.choice]
+      })
+      .then(function(dbQuestions) {
+        console.log(dbQuestions);
+        console.log("____________________________________________________")
+        console.log(dbQuestions[0].choices);
+        res.render("index", {
+          questionsAndChoices: dbQuestions
+        });
+      });
   });
 
   // Load breed results page
