@@ -3,5 +3,4 @@ $(document).ready(function() {
 
   var instance = M.FormSelect.getInstance(elem);
   instance.getSelectedValues();
-  
 });

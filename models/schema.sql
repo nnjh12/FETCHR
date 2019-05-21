@@ -1,5 +1,4 @@
 DROP DATABASE IF EXISTS adoptiondb;
 CREATE DATABASE adoptiondb;
 
--- DROP DATABASE IF EXISTS testdb;
--- CREATE DATABASE testdb;
+
