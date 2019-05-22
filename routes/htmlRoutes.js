@@ -9,9 +9,11 @@ module.exports = function(app) {
         include: [db.choice]
       })
       .then(function(dbQuestions) {
+
         // console.log(dbQuestions);
         // console.log("____________________________________________________")
         // console.log(dbQuestions[0].choices);
+
         res.render("index", {
           questionsAndChoices: dbQuestions
         });

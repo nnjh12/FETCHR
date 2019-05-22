@@ -15,7 +15,6 @@ VALUES (1, 1, 1),
         (2, 2, 4),
         (2, 2, 5);       
 
-
 INSERT INTO questions (question)
 VALUES ("What type of home do you live in?"),
        ("Do you have a yard?"),
@@ -1825,4 +1824,4 @@ INSERT INTO breeds (breed_id, breed_name, attribute, score)
 VALUES
     (145,'yorkshire terrier','Energy Level',5),
     (145,'yorkshire terrier','Exercise Needs',4);
-        
+     
