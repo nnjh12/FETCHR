@@ -15,7 +15,6 @@ VALUES ( 1, 1),
         (2, 4),
         (2, 5);       
 
-
 INSERT INTO questions (question)
 VALUES ("What type of home do you live in?"),
        ("Do you have a yard?"),
