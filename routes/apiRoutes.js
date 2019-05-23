@@ -26,9 +26,51 @@ module.exports = function(app) {
 
   // Post survey data
   app.post("/api/survey", function(req, res) {
-    db.survey.create(req.body).then(function(data) {
-      res.json(data);
-    });
+    db.user.create(
+      ["name", "zipcode"],
+      [req.body.name, req.body.zipcode],
+      function(result) {
+        // Send back the ID of the new user
+        res.json({ id: result.insertId });
+      }
+    );
+
+    db.survey.create(
+      [
+        "question1",
+        "question2",
+        "question3",
+        "question4",
+        "question5",
+        "question6",
+        "question7",
+        "question8",
+        "question9",
+        "question10",
+        "question11",
+        "question12",
+        "question13"
+      ],
+      [
+        req.body.question1,
+        req.body.question2,
+        req.body.question3,
+        req.body.question4,
+        req.body.question5,
+        req.body.question6,
+        req.body.question7,
+        req.body.question8,
+        req.body.question9,
+        req.body.question10,
+        req.body.question11,
+        req.body.question12,
+        req.body.question13
+      ],
+      function(result) {
+        // Send back the ID of the new user
+        res.json({ id: result.insertId });
+      }
+    );
   });
 
   // Get breed match results of specific user

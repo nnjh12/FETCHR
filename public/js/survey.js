@@ -1,13 +1,16 @@
 $(document).ready(function() {
   $("select").formSelect();
 
-  var instance = M.FormSelect.getInstance(elem);
-  instance.getSelectedValues();
+  // var instance = M.FormSelect.getInstance(elem);
+  // instance.getSelectedValues();
 
-  $("#breedSurvey").on("submit", function(event) {
+  $("#submitSurvey").click(function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+    // var instance = M.FormSelect.getInstance($('#breedSurvey'));
+    // var _d = instance.getSelectedValues();
+    console.log("I have been clicked");
+    
     var newSurvey = {
       name: $("#name").val(),
       zipcode: $("#zipcode").val(),
@@ -25,14 +28,16 @@ $(document).ready(function() {
       question12:parseInt($("#12").val()),
       question13:parseInt($("#13").val())
     };
+
+    console.log(newSurvey);
     // Send the POST request.
-    $.ajax("/movies", {
-      type: "POST",
-      data: newMovie
-    }).then(function() {
-      console.log("added new movie");
-      // Reload the page to get the updated list
-      location.reload();
-    });
+    // $.ajax("/api/survey", {
+    //   type: "POST",
+    //   data: newSurvey
+    // }).then(function() {
+    //   console.log("added new user and survey");
+    //   // Reload the page to get the updated list
+    //   // res.redirect("/");
+    // });
   });
 });
