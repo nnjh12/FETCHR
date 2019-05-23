@@ -1,4 +1,5 @@
 var db = require("../models");
+var breedResults = require("../public/js/breedresults");
 
 module.exports = function(app) {
   // Load index page
@@ -9,7 +10,6 @@ module.exports = function(app) {
         include: [db.choice]
       })
       .then(function(dbQuestions) {
-
         // console.log(dbQuestions);
         // console.log("____________________________________________________")
         // console.log(dbQuestions[0].choices);
@@ -22,7 +22,18 @@ module.exports = function(app) {
 
   // Load breed results page
   app.get("/breedresults", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/breedresults.html"));
+    console.log(breedResults);
+    db.breed
+      .findAll({
+        where: {
+          id: breedResults
+        },
+        include: [db.attribute]
+      })
+      .then(function(data) {
+        // console.log(data)
+        res.render("breedresults", { returnedArray: data });
+      });
   });
 
   // Load adopt results page
