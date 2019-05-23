@@ -126,35 +126,25 @@
     <script>
         $('#submit').on('click', function (event) {
             event.preventDefault();
+            $.post("/api/survey",
+            {
+                question1: $('#environment1').val().trim(),
+                question2: $('#environment2').val().trim(),
+                question3: $('#environment3').val().trim(),
+                question4: $('#people1').val().trim(),
+                question5: $('#people2').val().trim(),
+                question6: $('#activiy1').val().trim(),
+                question7: $('#activity2').val().trim(),
+                question8: $('#dogAttributes1').val().trim(),
+                question9: $('#dogAttributes1').val().trim(),
+                question10: $('#dogAttributes1').val().trim(),
+                question11: $('#dogAttributes1').val().trim(),
+                question12: $('experience1').val().trim()
+            },
 
-
-            // Grab data
-            var newMember = {
-                environmentScores: [
-                    $('#environment1').val().trim(),
-                    $('#environment2').val().trim(),
-                    $('#environment3').val().trim(),
-                ],
-                peopleScores: [
-                    $('#people1').val().trim(),
-                    $('#people2').val().trim(),
-                ],
-                activityScores: [
-                    $('#activity1').val().trim(),
-                    $('#activity2').val().trim(),
-                ],
-                dogAttributesScores: [
-                    $('#dogAttributes1').val().trim(),
-                    $('#dogAttributes2').val().trim(),
-                    $('#dogAttributes3').val().trim(),
-                    $('#dogAttributes4').val().trim(),
-                ],
-                experienceScores: [
-                    $('#experience1').val().trim(),
-                ]
-            };
-
-            console.log(newMember);
+            function(data){
+                console.log(data)
+            })
 
 
             // $.post("/api/friends", newMember, function (data) {

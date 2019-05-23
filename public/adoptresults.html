@@ -10,9 +10,63 @@
 </head>
 
 <body>
-   <h1>Adopt Results Test Page</h1>
+    <h1>Adopt Results Test Page</h1>
 
     <script>
+        $(document).ready(function(){ 
+        
+        $.get("/api/user/", function (data, status) {
+            var axios = require("axios");
+            var zipcode = data.zipcode
+            var queryURL =
+                "https://api.petfinder.com/v2/animals?location=" + zipcode + "&breed=" + breed1 + "," + breed2 + "," + breed3 + "&distance=25";
+
+            axios
+                .post("https://api.petfinder.com/v2/oauth2/token", {
+                    grant_type: "client_credentials",
+                    client_id: "UyaRXlF6adyxHVZ2Wcm0MubXaQuLHdWD6KggC3td9L4wtUrqX6",
+                    client_secret: "HYit9hdDopzMluAHHs3WyrNmrAUyrvC1CUkt5jMh"
+                })
+                .then(function (response) {
+                    console.log(response.data.access_token);
+                    axios
+                        .get(queryURL, {
+                            headers: {
+                                Authorization: "Bearer " + response.data.access_token
+                            }
+                        })
+                        .then(function (res) {
+                            var doggo = res.data.animals
+                            console.log(res.data);
+                            for (var i = 0; i < 10; i++) {
+                                var adoptionDiv = $("<div class='adoption'>");
+                                var dogName = doggo[i].name;
+                                var named = $("<p>").text(dogName);
+                                var description = doggo[i].description;
+                                var described = $("<p>").text(description);
+                                var gender = doggo[i].gender;
+                                var sex = $("<p>").text(gender);
+                                var status = doggo[i].status;
+                                var adopted = $("<p>").text(status);
+                                var image = $("<img>");
+                                image.addClass("dog-image");
+                                image.attr("src", doggo[i].photos[0]);
+                                adoptionDiv.append(image);
+                                adoptionDiv.append(named);
+                                adoptionDiv.append(described);
+                                adoptionDiv.append(sex);
+                                adoptionDiv.append(adopted);
+                                
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                });
+
+        })
+    })
+
     </script>
 </body>
 

@@ -17,7 +17,7 @@
     </div>
     <div>
         <p id="breedName2"></p>
-        <img id="breedImg2" alt="Breed2" src="https://placeholder.pics/svg/300" >
+        <img id="breedImg2" alt="Breed2" src="https://placeholder.pics/svg/300">
     </div>
     <div>
         <p id="breedName3"></p>
@@ -26,13 +26,28 @@
 
 
     <h1>Enter your zipcode to see dogs near you!</h1>
-    <form action="/adoptresults">
-        Zip Code <input type="text" pattern="[0-9]{5}" placeholder="Five digit of zip code" name="zipcode"><br>
+    
+    <form>
+        Name: <input type="text" id="name" placeholder="Jon Doe"><br>
+        Zip Code: <input type="text" id="zipcode" pattern="[0-9]{5}" placeholder="#####" name="zipcode"><br>
         <input type="submit" value="Submit" id="zipcode-submit">
+
+        
     </form>
 
     <script>
-        $.get("/api/users/" + id, function (data) {
+        $(document).ready(function(){ 
+        $("#zipcode-submit").click(function(){
+        $.post("/api/user/",
+        {
+            name: $("#name").val().trim(),
+            zipcode: $("#zipcode").val().trim()
+        },
+        function(data, status){
+            console.log(data)
+        })
+    })
+        $.get("/api/users/", function(data) {
             console.log(data)
             // var breedName;
             // var breedImgSrc;
@@ -41,11 +56,15 @@
             //     // key need to be updated
             //     breedName = data[i].key
             //     breedImgSrc = data[i].key
-                
+
             //     $("#breedName" + (i + 1)).text(breedName)
             //     $("#breedImg" + (i + 1)).attr("src", breedImgSrc)
             // }
         })
+  
+    })
+  
+
 
     </script>
 </body>
