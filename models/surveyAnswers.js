@@ -2,7 +2,6 @@ module.exports = function(sequelize, DataTypes) {
   var Survey = sequelize.define(
     "survey",
     {
-      user_id: DataTypes.INTEGER,
       question1: DataTypes.INTEGER,
       question2: DataTypes.INTEGER,
       question3: DataTypes.INTEGER,
@@ -21,5 +20,8 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false
     }
   );
+  Survey.associate = function(models) {
+    Survey.belongsTo(models.user);
+  };
   return Survey;
 };
