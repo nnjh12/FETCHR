@@ -34,7 +34,7 @@ module.exports = {
               reject(error)
             });
         });
-      console.log('after')
+      // console.log('after')
     })
   }
 };
