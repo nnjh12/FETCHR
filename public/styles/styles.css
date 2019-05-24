@@ -15,12 +15,20 @@
   text-align: center;
 }
 
-.card-image {
+.card-image-container {
   width: 100%;
   height: 240px;
   background-image: url('../images/dog_placeholder.jpg');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  /* background-image: url('../images/dog_placeholder.jpg');
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 /* Hover state for cards */
@@ -29,6 +37,7 @@
   text-align: center;
   padding-left: 1em;
   padding-right: 1em;
+  padding-top: 1em;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -49,15 +58,9 @@
   opacity: 1;
 }
 
-.content-details img {
-  border-radius: 50%;
-  width: 80%;
-  height: auto;
-}
-
 .overlay-img-container {
-  width: 80%;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   /* background-color: red; */
   margin: auto;
 }

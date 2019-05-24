@@ -10,37 +10,41 @@
 
     {{!-- Row --}}
     <div class="row">
-
+        {{#each dogs}}
         {{!-- Card --}}
-        <div class="col s6 m3">
+        <div class="col s6 m4 l3">
             <div class="card hoverable">
                 <a href="http://www.google.com" target="_blank">
                     <div class="content-overlay"></div>
                 </a>
-                <div class="card-image"></div>
+                <div class="card-image-container">
+                    <img src="{{photo}}" alt="" class="card-image">
+                </div>
                 <div class="curve"></div>
                 <div class="card-content">
-                    <h5 class='card-header purple-text'><strong>Spot</strong></h5>
-                    <p class="card-text">Adult &middot; Border Collie</p>
+                    <h5 class='card-header purple-text'><strong>{{name}}</strong></h5>
+                    <p class="card-text"><strong>{{age}} &middot; {{gender}}</strong></p>
                     <p class="card-text">3 miles away</p>
                 </div>
                 <a href="https://www.google.com/" target="_blank">
                     <div class="content-details fadeIn-bottom">
                         <a class="btn-floating btn-large purple card-button-custom waves-effect waves-light hoverable"
-                            href="https://www.google.com/" target="_blank">
+                            href="{{website}}" target="_blank">
                             <i class="material-icons">send</i>
                         </a>
-                        {{!-- <img src="https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/09/dog-landing-hero-sm.jpg?bust=1536935086"
-                            alt="" class="overlay-img"> --}}
                         <div class="overlay-img-container">
-                            <div class="overlay-img"></div>
+                            <img src="{{photo}}"
+                                alt="" class="overlay-img">
                         </div>
-                        <h4 class="purple-text">Spot</h4>
-                        <p class="card-text">Adult &middot; Border Collie</p>
-                        <p class="card-text">3 miles away</p>
+                        <h4 class="purple-text">{{name}}</h4>
+                        <p class="card-text">{{age}} &middot; {{gender}}</p>
+                        <p class="card-text"><strong>Phone:</strong><br>{{phone}}</p>
+                        <p class="card-text">{{address}}<br>{{city}}, {{state}}</p>
+                        
                     </div>
                 </a>
             </div>
         </div>
+        {{/each}}
     </div>
 </div>
