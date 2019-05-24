@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   var Breed = sequelize.define(
-    "breed",
+    "Breed",
     {
       breed_name: DataTypes.STRING,
       img: DataTypes.TEXT

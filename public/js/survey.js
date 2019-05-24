@@ -30,14 +30,14 @@ $(document).ready(function() {
     };
 
     console.log(newSurvey);
-    // Send the POST request.
-    // $.ajax("/api/survey", {
-    //   type: "POST",
-    //   data: newSurvey
-    // }).then(function() {
-    //   console.log("added new user and survey");
-    //   // Reload the page to get the updated list
-    //   // res.redirect("/");
-    // });
+    // Send the POST request
+    $.ajax("/api/survey", {
+      type: "POST",
+      data: newSurvey
+    }).then(function() {
+      console.log("added new user and survey");
+      // Reload the page to get the updated list
+      // res.redirect("/");
+    });
   });
 });

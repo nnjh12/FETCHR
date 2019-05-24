@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Attribute = sequelize.define(
-    "attribute",
+    "Attribute",
     {
       attribute: DataTypes.STRING,
       score: DataTypes.INTEGER
