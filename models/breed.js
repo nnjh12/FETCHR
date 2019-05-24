@@ -1,15 +1,18 @@
+/* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
-var Breed = sequelize.define("breed", {
-
-  breed_id: DataTypes.INTEGER,
-  breed_name: DataTypes.STRING,
-
-  attribute: DataTypes.STRING,
-  score: DataTypes.INTEGER
-},
-{
-  timestamps: false
-}
-);
+  var Breed = sequelize.define(
+    "breed",
+    {
+      breed_name: DataTypes.STRING,
+      img: DataTypes.TEXT
+    },
+    {
+      timestamps: false
+    }
+  );
+  Breed.associate = function(models) {
+    // Associating Questions with choices
+    Breed.hasMany(models.attribute);
+  };
   return Breed;
 };
