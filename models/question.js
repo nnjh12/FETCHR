@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   );
   Question.associate = function(models) {
     // Associating Questions with choices
-    Question.hasMany(models.choice);
+    Question.hasMany(models.Choice);
   };
   return Question;
 };

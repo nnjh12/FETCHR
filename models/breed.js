@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
   );
   Breed.associate = function(models) {
     // Associating Questions with choices
-    Breed.hasMany(models.attribute);
+    Breed.hasMany(models.Attribute);
   };
   return Breed;
 };
