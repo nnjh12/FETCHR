@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
   );
   Attribute.associate = function(models) {
     // Associating Questions with choices
-    Attribute.belongsTo(models.breed);
+    Attribute.belongsTo(models.Breed);
   };
   return Attribute;
 };
