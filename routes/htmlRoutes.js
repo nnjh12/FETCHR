@@ -22,6 +22,10 @@ module.exports = function (app) {
   });
 
   // Load breed results page
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5031bbf45bacc7dcccd98a299f2db0c7c830b718
   app.get("/breedresults", function(req, res) {
     console.log(breedResults);
     db.breed

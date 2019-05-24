@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define(
-    "question",
+    "Question",
     {
       question: DataTypes.STRING
     },
