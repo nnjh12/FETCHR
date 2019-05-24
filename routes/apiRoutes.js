@@ -49,8 +49,12 @@ module.exports = function(app) {
 
   // Get breed data
   app.get("/api/breed", function(req, res) {
-    db.breed.findAll({}).then(function(data) {
-      res.json(data);
-    });
+    db.breed
+      .findAll({
+        include: [db.attribute]
+      })
+      .then(function(data) {
+        res.json(data);
+      });
   });
 };

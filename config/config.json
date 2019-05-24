@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Greenduck",
+    "password": "root",
     "database": "adoptiondb",
     "host": "localhost",
     "dialect": "mysql",
