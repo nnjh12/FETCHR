@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   var BreedMatch = sequelize.define(
-    "breed_matche",
+    "Breed_matche",
     {
       user_id: DataTypes.INTEGER,
       survey_id: DataTypes.INTEGER
