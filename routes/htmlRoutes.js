@@ -6,12 +6,12 @@ module.exports = function (app) {
   // Load index page
 
   app.get("/", function (req, res) {
-    db.question
+    db.Question
       .findAll({
-        include: [db.choice]
+        include: [db.Choice]
       })
       .then(function(dbQuestions) {
-        // console.log(dbQuestions);
+        console.log(dbQuestions);
         // console.log("____________________________________________________")
         // console.log(dbQuestions[0].choices);
 
@@ -25,12 +25,12 @@ module.exports = function (app) {
 
   app.get("/breedresults", function(req, res) {
     console.log(breedResults);
-    db.breed
+    db.Breed
       .findAll({
         where: {
           id: breedResults
         },
-        include: [db.attribute]
+        include: [db.Attribute]
       })
       .then(function(data) {
         // console.log(data)

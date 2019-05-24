@@ -3,21 +3,21 @@ var db = require("../models");
 module.exports = function (app) {
   // Get specific users data
   app.get("/api/user/:userId", function (req, res) {
-    db.user.findAll({ where: { id: req.params.userId } }).then(function (data) {
+    db.User.findAll({ where: { id: req.params.userId } }).then(function (data) {
       res.json(data);
     });
   });
 
   // Post users data
   app.post("/api/user", function (req, res) {
-    db.user.create(req.body).then(function (data) {
+    db.User.create(req.body).then(function (data) {
       res.json(data);
     });
   });
 
   // Get survey data of specific user
   app.get("/api/survey/:userId", function (req, res) {
-    db.survey
+    db.Survey
       .findAll({ where: { id: req.params.userId } })
       .then(function (data) {
         res.json(data);
@@ -61,7 +61,7 @@ module.exports = function (app) {
 
   // Get breed match results of specific user
   app.get("/api/breedmatch/:userId", function (req, res) {
-    db.breed_matche
+    db.Breed_matche
       .findAll({ where: { id: req.params.userId } })
       .then(function (data) {
         res.json(data);
@@ -70,16 +70,16 @@ module.exports = function (app) {
 
   // Post breed match results
   app.post("/api/breedmatch", function (req, res) {
-    db.breed_matche.create(req.body).then(function (data) {
+    db.Breed_matche.create(req.body).then(function (data) {
       res.json(data);
     });
   });
 
   // Get breed data
   app.get("/api/breed", function (req, res) {
-    db.breed
+    db.Breed
       .findAll({
-        include: [db.attribute]
+        include: [db.Attribute]
       })
       .then(function (data) {
         res.json(data);
