@@ -1,14 +1,15 @@
 var db = require("../models");
+var petfinder = require("./petfinderRoutes");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
 
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     db.question
       .findAll({
         include: [db.choice]
       })
-      .then(function(dbQuestions) {
+      .then(function (dbQuestions) {
 
         // console.log(dbQuestions);
         // console.log("____________________________________________________")
@@ -21,17 +22,60 @@ module.exports = function(app) {
   });
 
   // Load breed results page
-  app.get("/breedresults", function(req, res) {
+  app.get("/breedresults", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/breedresults.html"));
   });
 
   // Load adopt results page
-  app.get("/adoptresults", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/adoptresults.html"));
+  app.get("/adoptresults", function (req, res) {
+    // petfinderRequest parameters are hardcoded for now, but will take in survey data.
+    // var dogs = petfinder.petfinderRequest();
+    // console.log(dogs);
+    // console.log(petfinder.petfinderRequest());
+    petfinder.petfinderRequest(19125, 5, "beagle").then(function (res) {
+
+      class Dog {
+        constructor(name, age, photo, gender, status, website, phone) {
+          this.name = name;
+          this.age = age;
+          this.photo = photo;
+          this.gender = gender;
+          this.status = status;
+          this.website = website;
+          this.phone = phone;
+        }
+      }
+
+      var responseDogs = [];
+
+      for (let i = 0; i < 10; i++) {
+        responseDogs.push(res.animals[i]);
+      }
+
+      console.log(responseDogs);
+
+
+      var hbsDogs = {
+        dogs: []
+      }
+
+      console.log(hbsDogs.dogs);
+      
+      for (var i = 0; i < 10; i++) {
+        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].small, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone))
+      }
+      
+      console.log(hbsDogs.dogs);
+
+      
+    })
+    res.render("adopt");
+
+
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

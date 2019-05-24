@@ -1,3 +1,114 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.inline-icon {
+  vertical-align: bottom;
+  font-size: 18px !important;
+}
+
+.nav-container {
+  margin: 20px;
+}
+
+.page-header, .card-header, .card-text {
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 240px;
+  background-image: url('../images/dog_placeholder.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Hover state for cards */
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  /* font-weight: bold; */
+}
+
+.card:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details img {
+  border-radius: 50%;
+  width: 80%;
+  height: auto;
+}
+
+.overlay-img-container {
+  width: 80%;
+  height: 150px;
+  /* background-color: red; */
+  margin: auto;
+}
+
+.overlay-img {
+  /* background-color: blue; */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/dog_placeholder.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.content-overlay {
+  background-color: rgba(255,255,255,0.9);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0; 
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.card:hover .content-overlay{
+  opacity: 1;
+}
+
+.card-button-custom {
+  position: absolute;
+  top: 3%;
+  left: 65%;
+}
+
+.card-content {
+  /* background-color: red; */
+  border-radius: 50%;
+}
+
+.curve {
+  width: 100%;
+  top: 225px;
+  background-color: rgba(255,255,255,1);
+  height: 30px;
+  position: absolute;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
