@@ -145,3 +145,8 @@ Light blue - #4dbedc
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
 }
+body, html {
+  height: 100%;
+
+}
+
