@@ -1,6 +1,9 @@
 var db = require("../models");
 var petfinder = require("./petfinderRoutes");
 var breedResults = require("../public/js/breedresults");
+// NPM package to convert html entities for special characters (', #, < , etc.) into the actual characters.
+const Entities = require('html-entities').XmlEntities;
+const entities = new Entities();
 
 module.exports = function (app) {
   // Load index page
@@ -50,8 +53,8 @@ module.exports = function (app) {
     petfinder.petfinderRequest(19125, 5, "beagle").then(function (res) {
 
       class Dog {
-        constructor(name, age, photo, gender, status, website, phone, address, city, state) {
-          this.name = name;
+        constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
+          this.name = entities.decode(name);
           this.age = age;
           this.photo = photo;
           this.gender = gender;
@@ -61,27 +64,28 @@ module.exports = function (app) {
           this.address = address;
           this.city = city;
           this.state = state;
+          this.description = entities.decode(description);
         }
       }
 
       var responseDogs = [];
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 12; i++) {
         responseDogs.push(res.animals[i]);
       }
 
-      // console.log(responseDogs);
+      console.log(responseDogs);
 
 
       
 
       // console.log(hbsDogs.dogs);
       
-      for (var i = 0; i < 10; i++) {
-        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state))
+      for (var i = 0; i < responseDogs.length; i++) {
+        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
       
-      console.log(hbsDogs.dogs, "Dogs");
+      // console.log(hbsDogs.dogs, "Dogs");
       response.render("adopt", hbsDogs);
       
     })

@@ -9,7 +9,7 @@
 
 
     {{!-- Row --}}
-    <div class="row">
+    <div class="row card-container">
         {{#each dogs}}
         {{!-- Card --}}
         <div class="col s6 m4 l3">
@@ -24,7 +24,7 @@
                 <div class="card-content">
                     <h5 class='card-header purple-text'><strong>{{name}}</strong></h5>
                     <p class="card-text"><strong>{{age}} &middot; {{gender}}</strong></p>
-                    <p class="card-text">3 miles away</p>
+                    <p class="card-text">{{description}}</p>
                 </div>
                 <a href="https://www.google.com/" target="_blank">
                     <div class="content-details fadeIn-bottom">
@@ -36,10 +36,10 @@
                             <img src="{{photo}}"
                                 alt="" class="overlay-img">
                         </div>
-                        <h4 class="purple-text">{{name}}</h4>
-                        <p class="card-text">{{age}} &middot; {{gender}}</p>
-                        <p class="card-text"><strong>Phone:</strong><br>{{phone}}</p>
-                        <p class="card-text">{{address}}<br>{{city}}, {{state}}</p>
+                        <h4 class="overlay-dog-name">{{name}}</h4>
+                        <p class="card-text card-text-custom">{{age}} &middot; {{gender}}</p>
+                        <p class="card-text card-text-custom"><strong>Phone:</strong><br>{{phone}}</p>
+                        <p class="card-text card-text-custom">{{address}}<br>{{city}}, {{state}}</p>
                         
                     </div>
                 </a>
