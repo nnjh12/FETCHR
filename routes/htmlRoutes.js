@@ -94,8 +94,98 @@ module.exports = function (app) {
 
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
-    res.render("404");
+  
+
+app.get("/breedresults/:id", function(req, res) {
+  var doggos;
+  var survey;
+  var allDogs = db.Breed
+      .findAll({
+        include: [db.Attribute]
+      });
+  
+ 
+//      });
+//TODO: Pass in the survey id from the on click
+
+var userSurvey = db.Survey
+  .findOne({
+    where: {
+      id: req.params.id
+    }
   });
+
+  Promise
+    .all([allDogs, userSurvey])
+    .then(responses => {
+
+doggos = responses[0];
+survey = responses[1];
+
+console.log(doggos);
+console.log(survey);
+
+var questionToAttributeMap = {
+question1: 'Adapts Well to Apartment Living',
+question5: 'Good For Novice Owners',
+question2: 'Sensitivity Level',
+question6: 'Tolerates Being Alone',
+question7: 'Affectionate with Family',
+question3: 'Incredibly Kid Friendly Dogs',
+question4: 'Dog Friendly',
+question12: 'Amount Of Shedding',
+question11: 'Size',
+question10: 'Easy To Train',
+question8: 'Energy Level',
+question9: 'Exercise Needs'
+}
+
+var perfectDog = {}
+var mapKeys = Object.keys(questionToAttributeMap);
+for(var i=0; i< mapKeys.length; i++){
+  var questionString = mapKeys[i]; // ie "question9"
+  var attributeString = questionToAttributeMap[mapKeys[i]].replace(/ /g,"_").toLowerCase(); // ie 'excercise_needs'
+  var valueOfAttr = survey[questionString];
+  perfectDog[attributeString] = valueOfAttr;
+}
+// stub 
+function kasieDistance(dog1, dog2){
+  return parseFloat((Math.random() * 10).toFixed(2))
+}
+// ... dog143] SELECT * FROM breeds including attrs
+for(var z=0; z < doggos.length; z++){  
+// format doggos to make them easy to compare
+for(i=0; i< doggos[z].Attributes.length; i++){
+  doggos[z][doggos[z].Attributes[i].attribute.replace(/ /g,"_").toLowerCase()] = doggos[z].Attributes[i].score;
+}
+}
+
+// this gives you the array of dogs ordered by score
+function dogsInOrder(doggos, perfectDog){
+    var orderedDoggos =[]; 
+      for(i=0; i < doggos.length; i++){
+        var score = kasieDistance(doggos[i], perfectDog);
+        orderedDoggos.push({breed: doggos[i].breed_name, score: score})
+      }
+  
+    console.log(orderedDoggos)
+}
+
+dogsInOrder(doggos, perfectDog);
+  
+});
+
+});
+
+// Render 404 page for any unmatched routes
+app.get("*", function (req, res) {
+  res.render("404");
+});
+
+
+
+
+
+
+
 };

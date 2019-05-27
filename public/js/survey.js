@@ -34,13 +34,18 @@ $(document).ready(function() {
     $.ajax("/api/survey", {
       type: "POST",
       data: newSurvey
-    }).then(function() {
-      console.log("added new user and survey");
-      // Reload the page to get the updated list
-      // res.redirect("/");
+    }).then(function(id) {
+      console.log(id);
+      window.location.href = `/breedresults/${id.surveyId}`;
     });
 
-    //create 
+    //create the user's perfect dog object from their answers
+
+    
+
+    //for loop to go through every dog and compare with Euclidean Distance formula
+
+    //make a limit for closeness score and show all dogs above that or limit to certain number?
 
 
 
