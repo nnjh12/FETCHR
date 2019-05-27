@@ -145,3 +145,52 @@ Light blue - #4dbedc
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
 }
+body, html {
+  height: 100%;
+
+}
+.subheader {
+ 
+}
+
+.image-container1{
+  height: 0;
+  line-height: 0;
+  padding-bottom: 45%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-top: -18%;
+  
+  background-image: url(https://photosfine.files.wordpress.com/2012/04/dog-holding-banner-1.jpg)
+}
+
+
+.jawn {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffa000 ;
+}
+
+.image-container {
+  background-image: url(https://photosfine.files.wordpress.com/2012/04/dog-holding-banner-1.jpg);
+}
+@media (min-width: 780px){
+ .image-container {
+      background-image: url(https://photosfine.files.wordpress.com/2012/04/dog-holding-banner-1.jpg);
+  }
+}
+@media (min-width: 960px){
+.image-container {
+      background-size: 960px 300px;
+      background-image: url(https://photosfine.files.wordpress.com/2012/04/dog-holding-banner-1.jpg);
+  }
+}
+@media (min-width: 1170px){
+.image-container {
+      
+      background-image: url(https://photosfine.files.wordpress.com/2012/04/dog-holding-banner-1.jpg);
+  }
+}
