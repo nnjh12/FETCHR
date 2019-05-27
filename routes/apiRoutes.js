@@ -9,10 +9,8 @@ module.exports = function(app) {
   });
 
   // Get specific users data
-  app.get("/api/user/:userName", function(req, res) {
-    db.User.findAll({ where: { id: req.params.userName } }).then(function(
-      data
-    ) {
+  app.get("/api/user/:userId", function(req, res) {
+    db.User.findAll({ where: { id: req.params.userId } }).then(function(data) {
       res.json(data);
     });
   });
@@ -27,7 +25,7 @@ module.exports = function(app) {
   // Get survey data of specific user
   app.get("/api/survey/:userId", function(req, res) {
     db.Survey.findAll({
-      where: { id: req.params.userId },
+      where: { UserId: req.params.userId },
       include: [db.User]
     }).then(function(data) {
       res.json(data);
@@ -89,6 +87,7 @@ module.exports = function(app) {
   // Get breed match results of specific user
   app.get("/api/breedresult/:userId", function(req, res) {
     db.BreedMatch.findAll({
+      where: { userId: req.params.userId },
       include: [db.User, db.Survey, db.Breed]
     }).then(function(data) {
       res.json(data);
