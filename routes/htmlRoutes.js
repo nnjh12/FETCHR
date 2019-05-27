@@ -1,4 +1,5 @@
 var db = require("../models");
+var _ = require("underscore");
 var petfinder = require("./petfinderRoutes");
 var breedResults = require("../public/js/breedresults");
 // NPM package to convert html entities for special characters (', #, < , etc.) into the actual characters.
@@ -140,17 +141,26 @@ question8: 'Energy Level',
 question9: 'Exercise Needs'
 }
 
+var dogAttributes = [];
+
 var perfectDog = {}
 var mapKeys = Object.keys(questionToAttributeMap);
 for(var i=0; i< mapKeys.length; i++){
   var questionString = mapKeys[i]; // ie "question9"
   var attributeString = questionToAttributeMap[mapKeys[i]].replace(/ /g,"_").toLowerCase(); // ie 'excercise_needs'
   var valueOfAttr = survey[questionString];
+  dogAttributes.push(attributeString);
   perfectDog[attributeString] = valueOfAttr;
 }
 // stub 
-function kasieDistance(dog1, dog2){
-  return parseFloat((Math.random() * 10).toFixed(2))
+function dogScoreComparison(dog1, dog2){
+  var totalDiff = 0;
+  for (var i =0; i <dogAttributes.length; i++){
+    var dogDiff = Math.abs(dog1[dogAttributes[i]] - dog2[dogAttributes[i]])
+    dogDiff = Math.pow(dogDiff,2)
+    totalDiff += dogDiff
+  }
+  return Math.sqrt(totalDiff);
 }
 // ... dog143] SELECT * FROM breeds including attrs
 for(var z=0; z < doggos.length; z++){  
@@ -164,15 +174,35 @@ for(i=0; i< doggos[z].Attributes.length; i++){
 function dogsInOrder(doggos, perfectDog){
     var orderedDoggos =[]; 
       for(i=0; i < doggos.length; i++){
-        var score = kasieDistance(doggos[i], perfectDog);
+        var score = dogScoreComparison(doggos[i], perfectDog);
         orderedDoggos.push({breed: doggos[i].breed_name, score: score})
       }
   
-    console.log(orderedDoggos)
+      var allSortedDogs =  _.sortBy( orderedDoggos, 'score' );
+      console.log(allSortedDogs)
+      var firstSixDogs = [];
+
+      for (var i = 0; i <6; i++){
+        // firstSixDogs.push({breed_name: allSortedDogs[i].breed});
+        firstSixDogs.push(allSortedDogs[i].breed)
+      }
+      return firstSixDogs;
 }
 
-dogsInOrder(doggos, perfectDog);
-  
+var matchedDogs = dogsInOrder(doggos, perfectDog);
+db.Breed
+.findAll({
+  where: {
+    breed_name:{
+      $in: matchedDogs
+    } 
+  },
+  include: [db.Attribute]
+})
+.then(function(data) {
+  console.log(data)
+  res.render("breedresults", { returnedArray: data });
+}); 
 });
 
 });
