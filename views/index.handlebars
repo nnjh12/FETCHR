@@ -18,10 +18,10 @@
             <select id="{{this.id}}">
               <option value="" disabled selected>Choose your option</option>
               {{#each this.Choices}}
-              <option value="{{this.id}}">{{this.choice}}</option>
+              <option value="{{this.value}}">{{this.choice}}</option>
               {{/each}}
             </select>
-            <label class="question" data="{{this.id}}">{{this.question}}</label>
+            <label class="question" data="{{this.question}}">{{this.question}}</label>
           </div>
         </div>
         {{/each}}
