@@ -25,21 +25,21 @@ module.exports = function (app) {
       });
   });
 
-  // Load breed results page
-  app.get("/breedresults", function(req, res) {
-    console.log(breedResults);
-    db.Breed
-      .findAll({
-        where: {
-          id: breedResults
-        },
-        include: [db.Attribute]
-      })
-      .then(function(data) {
-        // console.log(data)
-        res.render("breedresults", { returnedArray: data });
-      });
-  });
+  // // Load breed results page
+  // app.get("/breedresults", function(req, res) {
+  //   console.log(breedResults);
+  //   db.Breed
+  //     .findAll({
+  //       where: {
+  //         id: breedResults
+  //       },
+  //       include: [db.Attribute]
+  //     })
+  //     .then(function(data) {
+  //       // console.log(data)
+  //       res.render("breedresults", { returnedArray: data });
+  //     });
+  // });
 
   // Load adopt results page
   app.get("/adoptresults", function (req, response) {
@@ -197,7 +197,7 @@ db.Breed
       $in: matchedDogs
     } 
   },
-  include: [db.Attribute]
+  include: [db.Attribute],
 })
 .then(function(data) {
   console.log(data)

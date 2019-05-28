@@ -2,14 +2,14 @@
   <div class="row">
   {{#each returnedArray}}
     <div class="col s12 m12">
-      <img class="circle" src="https://lorempixel.com/100/190/nature/6">
+      <img class="circle" src={{image}}>
     <div class="card horizontal">
       <div class="card-stacked">
         <span class="card-title">{{breed_name}}</span>
         <div class="card-content">
           <ul>
             {{#each Attributes}}
-            <li>{{attribute}} : {{score}}</li>
+            <li>{{attribute}} : <img class="stars" data-score="{{score}}" src=""></li>
             {{/each}}
           </ul>
         </div>
@@ -24,6 +24,7 @@
 </div>
 </div>
 
+<!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 {{!-- javascript tags --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="/js/breedresults.js"></script>
+<script src="/js/breedResults.js"></script>

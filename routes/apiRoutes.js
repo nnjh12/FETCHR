@@ -49,7 +49,6 @@ module.exports = function(app) {
         console.log(surveyId);
         res.json({ surveyId: surveyId });
       });
-      
     });
   });
 
