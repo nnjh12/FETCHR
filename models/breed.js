@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     "Breed",
     {
       breed_name: DataTypes.STRING,
-      img: DataTypes.TEXT
+      image: DataTypes.TEXT
     },
     {
       timestamps: false
