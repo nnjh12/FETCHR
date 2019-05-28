@@ -79,11 +79,11 @@ module.exports = function (app) {
 
       var responseDogs = [];
 
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < res.animals.length; i++) {
         responseDogs.push(res.animals[i]);
       }
 
-      console.log(responseDogs);
+      // console.log(responseDogs);
 
 
 
@@ -93,8 +93,9 @@ module.exports = function (app) {
       for (var i = 0; i < responseDogs.length; i++) {
         hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
+  
+      console.log(hbsDogs.dogs, "Dogs");
 
-      // console.log(hbsDogs.dogs, "Dogs");
       response.render("adopt", hbsDogs);
 
     })

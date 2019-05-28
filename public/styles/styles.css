@@ -9,9 +9,6 @@ Light blue - #4dbedc
 
  */
 
- * {
-   color: #111;
- }
 
 .list-group-item {
   line-height: 2.5;
@@ -26,13 +23,22 @@ Light blue - #4dbedc
   margin: 20px;
 }
 
+.button-custom {
+  background-color: #39579d;
+}
+
 .page-header, .card-header, .card-text {
   text-align: center;
 }
 
 .card-container {
-  display:flex; 
-  flex-wrap:wrap;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-custom {
+  margin-left: 0 !important;
 }
 
 /* Front of cards */
@@ -98,7 +104,8 @@ Light blue - #4dbedc
 }
 
 .content-overlay {
-  background-color: rgba(255,187,40,0.9);
+  background-image: linear-gradient(rgba(255,187,40,0.9) 30%, rgba(255,187,40,1));
+  /* background-color: rgba(255,187,40,0.9); */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -117,7 +124,15 @@ Light blue - #4dbedc
   opacity: 1;
 }
 
-.overlay-dog-name {
+.custom-fab {
+  background-color: #39579d;
+}
+
+.custom-fab:hover {
+  background-color: #4dbedc;
+}
+
+.overlay-dog-name, .dog-name {
   color: #39579d;
 }
 
@@ -144,14 +159,17 @@ Light blue - #4dbedc
   position: absolute;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
+  border-top: 4px solid #ff6120;
 }
+
 body, html {
   height: 100%;
 
 }
-.subheader {
+
+/* .subheader {
  
-}
+} */
 
 .image-container1{
   height: 0;

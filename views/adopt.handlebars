@@ -1,7 +1,7 @@
 <div class="nav-container">
-    <a href="/breedresults" class="waves-effect waves-light btn-flat btn-custom"><i class="inline-icon material-icons">arrow_back</i>
+    <a class="waves-effect waves-light btn-flat btn-custom" href="/breedresults"><i class="inline-icon material-icons">arrow_back</i>
         Back to Breeds</a>
-    <a href="/" class="waves-effect waves-light btn purple">Start Over</a>
+    <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
 </div>
 
 <div class="container">
@@ -12,8 +12,8 @@
     <div class="row card-container">
         {{#each dogs}}
         {{!-- Card --}}
-        <div class="col s6 m4 l3">
-            <div class="card hoverable">
+        <div class="col s6 m4 l3 col-custom">
+            <div class="card hoverable card-custom">
                 <a href="http://www.google.com" target="_blank">
                     <div class="content-overlay"></div>
                 </a>
@@ -22,13 +22,13 @@
                 </div>
                 <div class="curve"></div>
                 <div class="card-content">
-                    <h5 class='card-header purple-text'><strong>{{name}}</strong></h5>
-                    <p class="card-text"><strong>{{age}} &middot; {{gender}}</strong></p>
-                    <p class="card-text">{{description}}</p>
+                    <h5 class='card-header dog-name'><strong>{{name}}</strong></h5>
+                    <p class="card-text card-text-custom"><strong>{{age}} &middot; {{gender}}</strong></p>
+                    <p class="card-text card-text-custom">{{description}}</p>
                 </div>
                 <a href="https://www.google.com/" target="_blank">
                     <div class="content-details fadeIn-bottom">
-                        <a class="btn-floating btn-large purple card-button-custom waves-effect waves-light hoverable"
+                        <a class="btn-floating btn-large card-button-custom waves-effect waves-light hoverable custom-fab"
                             href="{{website}}" target="_blank">
                             <i class="material-icons">send</i>
                         </a>
