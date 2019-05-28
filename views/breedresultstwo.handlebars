@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+  {{#each returnedArray}}
+    <div class="col s12 m12">
+      <img class="circle" src="https://lorempixel.com/100/190/nature/6">
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <span class="card-title">{{breed_name}}</span>
+        <div class="card-content">
+          <ul>
+            {{#each Attributes}}
+            <li>{{attribute}} : {{score}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="card-action">
+         <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
+            data-breed="{{breed_name}}">Find</button>
+        </div>
+      </div>
+    </div>
+        </div>
+  {{/each}}
+</div>
+</div>
+
+{{!-- javascript tags --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="/js/breedresults.js"></script>

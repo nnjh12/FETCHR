@@ -201,7 +201,7 @@ db.Breed
 })
 .then(function(data) {
   console.log(data)
-  res.render("breedresults", { returnedArray: data });
+  res.render("breedresultstwo", { returnedArray: data });
 }); 
 });
 
