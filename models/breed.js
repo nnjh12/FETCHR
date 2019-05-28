@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
   Breed.associate = function(models) {
-    // Associating Questions with choices
     Breed.hasMany(models.Attribute);
+    Breed.hasMany(models.BreedMatch);
   };
   return Breed;
 };

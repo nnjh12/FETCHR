@@ -8,13 +8,6 @@ VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1),
         (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1),
         (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3, 1);  
 
-INSERT INTO breed_matches (user_id, survey_id)
-VALUES ( 1, 1),
-        (1, 2),
-        (1, 3), 
-        (2, 4),
-        (2, 5);       
-
 INSERT INTO questions (question)
 VALUES ("What type of home do you live in?"),
        ("Do you have a yard?"),
@@ -72,14 +65,14 @@ VALUES (
 INSERT INTO breeds (breed_name, img) VALUES
     ('affenpinscher','https://vetstreet.brightspotcdn.com/dims4/default/02021e8/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fe0%2Fc3c3c0a71611e0a0d50050568d634f%2Ffile%2FAffenpinscher-1-645mk070111.jpg'),
     ('afghan hound','https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F746973%252Fec89245f-b1bf-41df-82d8-c8891e068046.jpg%252F950x534__filters%253Aquality%252890%2529.jpg?signature=VJeG4A1Ee62Xt-oww9511wO1-Og=&source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com'),
-    ('akita','https://wds2018.com/wp-content/uploads/2017/05/Akita-foto.jpg')
+    ('akita','https://wds2018.com/wp-content/uploads/2017/05/Akita-foto.jpg'),
+    ('alaskan malamute','https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Alaskan_Malamute.jpg/300px-Alaskan_Malamute.jpg'),
+    ('american bulldog','https://bowwowinsurance.com.au/wp-content/uploads/2018/11/american-bulldog-700x700.jpg'),
+    ('american eskimo dog','https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/american-eskimo-dog-detail.jpg?bust=1535565061&width=355'),
+    ('american foxhound','https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001630/American-Foxhound-On-White-03.jpg'),
+    ('american pit bull terrier','https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/004_American_Pit_Bull_Terrier.jpg/220px-004_American_Pit_Bull_Terrier.jpg'),
+    ('american staffordshire terrier','https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/07172037/AmStaff.06.jpg')
 --     ,
---     ('alaskan malamute'),
---     ('american bulldog'),
---     ('american eskimo dog'),
---     ('american foxhound'),
---     ('american pit bull terrier'),
---     ('american staffordshire terrier'),
 --     ('australian cattle dog'),
 --     ('australian kelpie'),
 --     ('australian shepherd'),
@@ -219,6 +212,17 @@ INSERT INTO breeds (breed_name, img) VALUES
 --     ('yorkshire terrier')
 ;
 
+INSERT INTO breedMatches (userId, surveyId, breedId)
+VALUES (1, 1, 1),
+        (1, 1, 2),
+        (1, 1, 3), 
+        (2, 2, 4),
+        (2, 2, 5),
+        (2, 2, 6),
+        (3, 3, 7),
+        (3, 3, 8),
+        (3, 3, 9);     
+
 
 
 INSERT INTO attributes(breedId,attribute,score) VALUES (1,'Adapts Well to Apartment Living',5);
@@ -257,78 +261,78 @@ INSERT INTO attributes(breedId,attribute,score) VALUES (3,'Size',4);
 INSERT INTO attributes(breedId,attribute,score) VALUES (3,'Easy To Train',2);
 INSERT INTO attributes(breedId,attribute,score) VALUES (3,'Energy Level',4);
 INSERT INTO attributes(breedId,attribute,score) VALUES (3,'Exercise Needs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Adapts Well to Apartment Living',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Good For Novice Owners',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Sensitivity Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Tolerates Being Alone',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Affectionate with Family',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Incredibly Kid Friendly Dogs',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Dog Friendly',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Amount Of Shedding',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Size',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Easy To Train',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Energy Level',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Exercise Needs',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Adapts Well to Apartment Living',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Good For Novice Owners',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Sensitivity Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Tolerates Being Alone',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Affectionate with Family',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Incredibly Kid Friendly Dogs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Dog Friendly',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Amount Of Shedding',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Size',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Easy To Train',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Energy Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Exercise Needs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Adapts Well to Apartment Living',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Good For Novice Owners',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Sensitivity Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Tolerates Being Alone',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Affectionate with Family',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Incredibly Kid Friendly Dogs',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Dog Friendly',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Amount Of Shedding',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Size',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Easy To Train',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Energy Level',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Exercise Needs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Adapts Well to Apartment Living',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Good For Novice Owners',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Sensitivity Level',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Tolerates Being Alone',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Affectionate with Family',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Incredibly Kid Friendly Dogs',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Dog Friendly',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Amount Of Shedding',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Size',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Easy To Train',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Energy Level',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Exercise Needs',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Adapts Well to Apartment Living',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Good For Novice Owners',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Sensitivity Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Tolerates Being Alone',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Affectionate with Family',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Incredibly Kid Friendly Dogs',5);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Dog Friendly',1);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Amount Of Shedding',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Size',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Easy To Train',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Energy Level',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Exercise Needs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Adapts Well to Apartment Living',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Good For Novice Owners',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Sensitivity Level',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Tolerates Being Alone',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Affectionate with Family',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Incredibly Kid Friendly Dogs',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Dog Friendly',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Amount Of Shedding',2);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Size',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Easy To Train',4);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Energy Level',3);
--- INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Exercise Needs',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Adapts Well to Apartment Living',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Good For Novice Owners',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Sensitivity Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Tolerates Being Alone',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Affectionate with Family',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Incredibly Kid Friendly Dogs',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Dog Friendly',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Amount Of Shedding',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Size',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Easy To Train',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Energy Level',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (4,'Exercise Needs',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Adapts Well to Apartment Living',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Good For Novice Owners',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Sensitivity Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Tolerates Being Alone',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Affectionate with Family',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Incredibly Kid Friendly Dogs',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Dog Friendly',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Amount Of Shedding',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Size',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Easy To Train',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Energy Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (5,'Exercise Needs',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Adapts Well to Apartment Living',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Good For Novice Owners',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Sensitivity Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Tolerates Being Alone',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Affectionate with Family',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Incredibly Kid Friendly Dogs',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Dog Friendly',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Amount Of Shedding',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Size',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Easy To Train',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Energy Level',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (6,'Exercise Needs',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Adapts Well to Apartment Living',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Good For Novice Owners',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Sensitivity Level',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Tolerates Being Alone',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Affectionate with Family',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Incredibly Kid Friendly Dogs',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Dog Friendly',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Amount Of Shedding',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Size',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Easy To Train',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Energy Level',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (7,'Exercise Needs',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Adapts Well to Apartment Living',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Good For Novice Owners',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Sensitivity Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Tolerates Being Alone',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Affectionate with Family',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Incredibly Kid Friendly Dogs',5);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Dog Friendly',1);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Amount Of Shedding',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Size',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Easy To Train',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Energy Level',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (8,'Exercise Needs',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Adapts Well to Apartment Living',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Good For Novice Owners',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Sensitivity Level',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Tolerates Being Alone',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Affectionate with Family',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Incredibly Kid Friendly Dogs',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Dog Friendly',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Amount Of Shedding',2);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Size',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Easy To Train',4);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Energy Level',3);
+INSERT INTO attributes(breedId,attribute,score) VALUES (9,'Exercise Needs',3);
 -- INSERT INTO attributes(breedId,attribute,score) VALUES (10,'Adapts Well to Apartment Living',2);
 -- INSERT INTO attributes(breedId,attribute,score) VALUES (10,'Good For Novice Owners',1);
 -- INSERT INTO attributes(breedId,attribute,score) VALUES (10,'Sensitivity Level',4);
