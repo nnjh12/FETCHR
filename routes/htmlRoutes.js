@@ -1,9 +1,9 @@
 var db = require("../models");
 var petfinder = require("./petfinderRoutes");
-var breedResults = require("../public/js/breedresults");
 // NPM package to convert html entities for special characters (', #, < , etc.) into the actual characters.
 const Entities = require('html-entities').XmlEntities;
 const entities = new Entities();
+
 
 module.exports = function (app) {
   // Load index page
@@ -13,7 +13,7 @@ module.exports = function (app) {
       .findAll({
         include: [db.Choice]
       })
-      .then(function(dbQuestions) {
+      .then(function (dbQuestions) {
         console.log(dbQuestions);
         // console.log("____________________________________________________")
         // console.log(dbQuestions[0].choices);
@@ -25,19 +25,28 @@ module.exports = function (app) {
   });
 
   // Load breed results page
-  app.get("/breedresults", function(req, res) {
-    console.log(breedResults);
-    db.Breed
+  app.get("/breedresults", function (req, res) {
+    var breedResults = [];
+    // userId is hard-coded as 3. { userId: 3 }
+    db.BreedMatch.findAll({ where: { userId: 3 } }).then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        breedResults.push(data[i].BreedId)
+        console.log("Find breed match result: " + breedResults)
+      }
+    }).then(function(){
+      console.log(breedResults);
+      db.Breed
       .findAll({
         where: {
           id: breedResults
         },
         include: [db.Attribute]
       })
-      .then(function(data) {
+      .then(function (data) {
         // console.log(data)
         res.render("breedresults", { returnedArray: data });
       });
+    })
   });
 
   // Load adopt results page
@@ -77,17 +86,17 @@ module.exports = function (app) {
       console.log(responseDogs);
 
 
-      
+
 
       // console.log(hbsDogs.dogs);
-      
+
       for (var i = 0; i < responseDogs.length; i++) {
         hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
-      
+
       // console.log(hbsDogs.dogs, "Dogs");
       response.render("adopt", hbsDogs);
-      
+
     })
     // console.log(hbsDogs, "after")
 
