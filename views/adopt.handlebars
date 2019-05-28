@@ -1,5 +1,6 @@
 <div class="nav-container">
-    <a class="waves-effect waves-light btn-flat btn-custom" href="/breedresults"><i class="inline-icon material-icons">arrow_back</i>
+    <a class="waves-effect waves-light btn-flat btn-custom" href="/breedresults"><i
+            class="inline-icon material-icons">arrow_back</i>
         Back to Breeds</a>
     <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
 </div>
@@ -27,23 +28,20 @@
                     <p class="card-text card-text-bold">{{age}} &middot; {{gender}}</p>
                     <p class="card-text card-text-custom">{{description}}</p>
                 </div>
-                <a href="https://www.google.com/" target="_blank">
-                    <div class="content-details fadeIn-bottom">
-                        <a class="btn-floating btn-large card-button-custom waves-effect waves-light hoverable custom-fab"
-                            href="{{website}}" target="_blank">
-                            <i class="material-icons">send</i>
-                        </a>
-                        <div class="overlay-img-container">
-                            <img src="{{photo}}"
-                                alt="" class="overlay-img">
-                        </div>
-                        <h4 class="overlay-dog-name">{{name}}</h4>
-                        <p class="card-text card-text-bold">{{age}} &middot; {{gender}}</p>
-                        <p class="card-text card-text-custom">Phone:<br>{{phone}}</p>
-                        <p class="card-text card-text-custom">{{address}}<br>{{city}}, {{state}}</p>
-                        
+                <div class="content-details fadeIn-bottom">
+                    <a class="btn-floating btn-large card-button-custom waves-effect waves-light hoverable custom-fab"
+                        href="{{website}}" target="_blank">
+                        <i class="material-icons">send</i>
+                    </a>
+                    <div class="overlay-img-container">
+                        <img src="{{photo}}" alt="" class="overlay-img">
                     </div>
-                </a>
+                    <a href="{{website}}" target="_blank"><h4 class="overlay-dog-name">{{name}}</h4></a>
+                    <p class="card-text card-text-bold">{{age}} &middot; {{gender}}</p>
+                    <p class="card-text card-text-custom">Phone:<br>{{phone}}</p>
+                    <p class="card-text card-text-custom">{{address}}<br>{{city}}, {{state}}</p>
+
+                </div>
             </div>
         </div>
         {{/each}}
