@@ -1,10 +1,18 @@
 $(document).ready(function() {
+
   $(".attributeAndScore").each(function() {
     var attrScore = parseInt($(this).attr("data-score"));
+    var topFourAttr =[]
     if (attrScore < 4) {
       $(this).hide();
     }
+    var attributeElementCount = $(this "li").length;
+    if (attributeElementCount > 4){
+
+    }
   });
+
+  var attributeElementCount = $(". li").length;
 
   $(".stars").each(function () {
     var starCount = parseInt($(this).attr("data-score"));

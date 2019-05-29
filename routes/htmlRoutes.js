@@ -224,7 +224,7 @@ db.Breed
 
   // }
   console.log(data)
-  res.render("breedresultstwo", { returnedArray: data });
+  res.render("breedresults", { returnedArray: data });
 }); 
 });
 
