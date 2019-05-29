@@ -223,8 +223,14 @@ db.Breed
   //   }
 
   // }
-  console.log(data)
-  res.render("breedresults", { returnedArray: data });
+  // console.log(data)
+  // console.log(survey)
+  // var returnedArray = {
+  //   data:data, 
+  //   survey:survey
+  //  }
+   console.log(returnedArray);
+  res.render("breedresults", returnedArray);
 }); 
 });
 

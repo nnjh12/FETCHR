@@ -9,26 +9,26 @@
     </div>
   </div>
   <div class="row">
-    {{#each returnedArray}}
+    {{#each returnedArray.data}}
     <div class="col s12 m12">
     <div class="card horizontal valign-wrapper">
       <div class="imageCropper">
-        <img class="dogImage" src={{image}}>
+        <img class="dogImage" src={{Breed.image}}>
       </div>
       <div class="card-stacked">
-        <span class="card-title">{{breed_name}}</span>
+        <span class="card-title">{{Breed.breed_name}}</span>
         <div class="card-content">
           <ul>
-              {{#each Attributes}}
+              {{#each Breed.Attributes}}
               
-              <li class="attributeAndScore valign-wrapper" data-score="{{score}}">{{attribute}} : <img class="stars" data-score="{{score}}" src=""></li>
+              <li class="attributeAndScore valign-wrapper" data-score="{{this.score}}">{{this.attribute}} : <img class="stars" data-score="{{this.score}}" src=""></li>
               
               {{/each}}
             </ul>
         </div>
         <div class="card-action">
            <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
-              data-breed="{{breed_name}}">Find</button>
+              data-breed="{{Breed.breed_name}}">Find</button>
         </div>
       </div>
     </div>
