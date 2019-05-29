@@ -1,7 +1,6 @@
 var db = require("../models");
 var _ = require("underscore");
 var petfinder = require("./petfinderRoutes");
-var breedResults = require("../public/js/breedresults");
 // NPM package to convert html entities for special characters (', #, < , etc.) into the actual characters.
 const Entities = require('html-entities').XmlEntities;
 const entities = new Entities();
@@ -127,16 +126,16 @@ console.log(doggos);
 console.log(survey);
 
 var questionToAttributeMap = {
-question1: 'Adapts Well to Apartment Living',
-question5: 'Good For Novice Owners',
+question1: 'Apartment Living',
+question5: 'Novice Owners',
 question2: 'Sensitivity Level',
-question6: 'Tolerates Being Alone',
-question7: 'Affectionate with Family',
-question3: 'Incredibly Kid Friendly Dogs',
+question6: 'Independent',
+question7: 'Affectionate',
+question3: 'Kid Friendly',
 question4: 'Dog Friendly',
-question12: 'Amount Of Shedding',
+question12: 'Shedding',
 question11: 'Size',
-question10: 'Easy To Train',
+question10: 'Trainability',
 question8: 'Energy Level',
 question9: 'Exercise Needs'
 }
@@ -197,9 +196,33 @@ db.Breed
       $in: matchedDogs
     } 
   },
-  include: [db.Attribute],
+  include: {
+    model: db.Attribute,
+    limit: 4,
+    where: {
+    score: {
+      $gt: 3
+    }
+  }
+}
+  // [db.Attribute],
 })
 .then(function(data) {
+  // var dogsandAttributes = [];
+  // for (var i = 0; i < data.length; i++){
+  //     var topAttributes = [];
+  //   for (var z = 0; z < data[i].Attributes.length; z++ ){
+  //     if (data[i].Attributes[z].score > 3){
+  //       topAttributes.push(data[i].Attributes[z])
+  //     }
+  //   }
+    
+  //   var finishedDog = {
+  //     breed_name : $(this).breed_name,
+  //     Attributes : {}
+  //   }
+
+  // }
   console.log(data)
   res.render("breedresultstwo", { returnedArray: data });
 }); 

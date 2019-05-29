@@ -1,30 +1,45 @@
 <div class="container">
+  <div class ="row">
+    <div class="col s4 m4">
+      <img id="headerImage" src="../images/breedresults.svg">
+    </div>
+    <div class="col s8 m8">
+      <h1 id="headertext">Your Matches Are In!</h1>
+      <p id="directionText">Below you will find the best pups for your pack. Click the Find button under each breed to search your local shelters for adoptable dogs!</p>
+    </div>
+  </div>
   <div class="row">
-  {{#each returnedArray}}
+    {{#each returnedArray}}
     <div class="col s12 m12">
-      <img class="circle" src={{image}}>
-    <div class="card horizontal">
+    <div class="card horizontal valign-wrapper">
+      <div class="imageCropper">
+        <img class="dogImage" src={{image}}>
+      </div>
       <div class="card-stacked">
         <span class="card-title">{{breed_name}}</span>
         <div class="card-content">
           <ul>
-            {{#each Attributes}}
-            <li>{{attribute}} : <img class="stars" data-score="{{score}}" src=""></li>
-            {{/each}}
-          </ul>
+              {{#each Attributes}}
+              
+              <li class="attributeAndScore valign-wrapper" data-score="{{score}}">{{attribute}} : <img class="stars" data-score="{{score}}" src=""></li>
+              
+              {{/each}}
+            </ul>
         </div>
         <div class="card-action">
-         <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
-            data-breed="{{breed_name}}">Find</button>
+           <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
+              data-breed="{{breed_name}}">Find</button>
         </div>
       </div>
     </div>
-        </div>
-  {{/each}}
-</div>
+  </div>
+            
+
+    {{/each}}
+  </div>
 </div>
 
 <!--jquery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 {{!-- javascript tags --}}
-<script src="/js/breedResults.js"></script>
+<script src="/js/breedpage.js"></script>
