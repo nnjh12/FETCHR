@@ -38,12 +38,12 @@ module.exports = function (app) {
   // });
 
   // Load adopt results page
-  app.get("/adoptresults/:breed/:userid", function (req, response) {
+  app.get("/adoptresults/:breed/:userid/:surveyid", function (req, response) {
     // petfinderRequest parameters are hardcoded for now, but will take in survey data.
     // var dogs = petfinder.petfinderRequest();
     // console.log(dogs);
     // console.log(petfinder.petfinderRequest());
-
+    
     //Get the user zipcode from the param
     db.User
       .findAll({
@@ -55,12 +55,14 @@ module.exports = function (app) {
         var zipcode = user[0].zipcode.toString();
         console.log("zipcode is" + zipcode)
         console.log(req.params.breed);
-        
+      
+        breed = req.params.breed.replace(/ /g, "%20")
     var hbsDogs = {
+      surveyId : req.params.surveyid,
       dogs: []
     }
 
-    petfinder.petfinderRequest(zipcode, 25, req.params.breed).then(function (res) {
+    petfinder.petfinderRequest(zipcode, 25, breed).then(function (res) {
 
       class Dog {
         constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
