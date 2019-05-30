@@ -1,13 +1,13 @@
-  <nav>
+<nav>
     <div class="nav-wrapper amber darken-2">
-      <a class="brand-logo">In Your Area</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/auth/login">Login</a></li>
-          <li><a href="/">Home</a></li>
-      </ul>
+        <a class="brand-logo">In Your Area</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/">Home</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 <div class="nav-container">
     <a id="breedResults" class="waves-effect waves-light btn-flat btn-custom" data-survey="{{surveyId}}"><i
             class="inline-icon material-icons">arrow_back</i>
@@ -16,9 +16,14 @@
 
 <div class="container">
     <h3 class="adopt-page-header">Check out these <span class="adopt-header-accent">adoptable</span> dogs!</h3>
-    <p>We've used your location data and breed selection to find these dogs in shelters near you! If you'd like to retake the survey, click the button below.</p>
-    <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
-    
+    <div class="top-copy-container">
+        <p>We've used your location data and breed selection to find these dogs in shelters near you!</p>
+        <p>If you'd like to retake the survey, click the button below.</p>
+    </div>
+    <div class="button-container">
+        <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
+    </div>
+
     <hr class="adopt-header-divider">
 
 
@@ -48,7 +53,9 @@
                     <div class="overlay-img-container">
                         <img src="{{photo}}" alt="" class="overlay-img">
                     </div>
-                    <a href="{{website}}" target="_blank"><h4 class="overlay-dog-name">{{name}}</h4></a>
+                    <a href="{{website}}" target="_blank">
+                        <h4 class="overlay-dog-name">{{name}}</h4>
+                    </a>
                     <p class="card-text card-text-bold">{{age}} &middot; {{gender}}</p>
                     <p class="card-text card-text-custom">Phone:<br>{{phone}}</p>
                     <p class="card-text card-text-custom">{{address}}<br>{{city}}, {{state}}</p>

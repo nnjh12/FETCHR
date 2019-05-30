@@ -42,7 +42,12 @@ Light blue - #4dbedc
   background-color: #39579d;
 }
 
-.adopt-page-header, .card-header, .card-text {
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.adopt-page-header, .card-header, .card-text, .top-copy-container {
   text-align: center;
 }
 
