@@ -1,0 +1,111 @@
+.breedRow {
+  min-width: 760px;
+}
+#headerImage{
+  width:70%;
+}
+
+#headertext{
+  font-size: 3rem;
+}
+.imageHolder {
+  width: 100%;
+}
+.imageCropper {
+  width: 18rem;
+  height: 18rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin:2rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+.dogImage {
+display: inline;
+margin: 0 auto;
+margin-left: -25%; /*centers the image*/
+height: 100%;
+width: auto;
+}
+
+.stars{
+  width: 10rem;
+  margin-left: 2%;
+}
+
+.upperCase{
+  text-transform: uppercase;
+}
+
+.attribute {
+  display: inline-block;
+  width: 10rem;
+}
+
+.breedRow {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+.breedNameRow {
+  margin-top: 20px;
+}
+/*XLarge: Desktop Devices > 992px */
+@media only screen and (max-width: 1200px) {
+  .imageCropper {
+    width: 16rem;
+    height: 16rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin:2rem;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .imageCropper {
+    width: 16rem;
+    height: 16rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin:2rem;
+  }
+}
+/*Large: Desktop Devices > 992px */
+@media only screen and (max-width: 992px) {
+  .imageCropper {
+    width: 18rem;
+    height: 18rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin:2rem;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .imageCropper {
+    width: 18rem;
+    height: 18rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin:2rem;
+  }
+}
+/*Medium: Desktop Devices > 600px */
+@media only screen and (max-width: 600px) {
+  .breedRow {
+    min-width: 250px;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .imageCropper {
+    width: 16rem;
+    height: 16rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin:2rem;
+  }
+}

@@ -8,9 +8,7 @@
       </ul>
     </div>
   </nav>
-<div class="image-container1">
-  <h4 class="jawn">Find a dog breed that suits your personality!</h4>
-</div>
+
 <button class="google-oauth"><a href="/auth/login">Login</a></button>
 
 <div class="container">
@@ -33,10 +31,10 @@
             <select id="{{this.id}}">
               <option value="" disabled selected>Choose your option</option>
               {{#each this.Choices}}
-              <option value="{{this.id}}">{{this.choice}}</option>
+              <option value="{{this.value}}">{{this.choice}}</option>
               {{/each}}
             </select>
-            <label class="question" data="{{this.id}}">{{this.question}}</label>
+            <label class="question" data="{{this.question}}">{{this.question}}</label>
           </div>
         </div>
         {{/each}}
@@ -49,6 +47,8 @@
   </div>
 </div>
 
+<!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 {{!-- javascript tags --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+{{!-- <script src="/js/survey.js"></script> --}}
 <script src="/js/survey.js"></script>
