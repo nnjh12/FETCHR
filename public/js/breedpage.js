@@ -30,6 +30,8 @@ $(".findButton").click(function(event) {
     console.log(breed)
     var userId= $(this).attr("data-user")
     console.log(userId)
+    var surveyId= $(this).attr("data-survey")
+    console.log(surveyId)
   
 
   
@@ -39,7 +41,7 @@ $(".findButton").click(function(event) {
   //   data: findSubmit
   // }).then(function(id) {
   //   console.log(id);
-    window.location.href = `/adoptresults/${breed}/${userId}`;
+    window.location.href = `/adoptresults/${breed}/${userId}/${surveyId}`;
   });
 });
 
