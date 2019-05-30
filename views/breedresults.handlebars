@@ -1,36 +1,45 @@
-  <nav>
-    <div class="nav-wrapper amber darken-2">
-      <a class="brand-logo">Breeds</a>
-    </div>
-  </nav>
-<div class="image-container2">
 <div class="container">
-  {{#each returnedArray}}
+  <div class ="row">
+    <div class="col s4 m4">
+      <img id="headerImage" src="../images/breedresults.svg">
+    </div>
+    <div class="col s8 m8">
+      <h1 id="headertext">Your Matches Are In!</h1>
+      <p id="directionText">Below you will find the best pups for your pack. Click the Find button under each breed to search your local shelters for adoptable dogs!</p>
+    </div>
+  </div>
   <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src={{img}}>
-          <span class="card-title">{{breed_name}}</span>
-        </div>
+    {{#each data}}
+    <div class="col s12 m12">
+    <div class="card horizontal valign-wrapper">
+      <div class="imageCropper">
+        <img class="dogImage" src={{this.image}}>
+      </div>
+      <div class="card-stacked">
+        <span class="card-title">{{this.breed_name}}</span>
         <div class="card-content">
           <ul>
-            {{#each Attributes}}
-            <li>{{attribute}} : {{score}}</li>
-            {{/each}}
-          </ul>
-
+              {{#each this.Attributes}}
+              
+              <li class="attributeAndScore valign-wrapper" data-score="{{this.score}}">{{this.attribute}} : <img class="stars" data-score="{{this.score}}" src=""></li>
+              
+              {{/each}}
+            </ul>
         </div>
         <div class="card-action">
-          <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
-            data-breed="{{breed_name}}">Find</button>
+           <button class="btn waves-effect waves-light findButton" type="submit" name="action" id="findAdoption"
+              data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
         </div>
       </div>
     </div>
   </div>
-  {{/each}}
+            
+
+    {{/each}}
+  </div>
 </div>
 
-{{!-- javascript tags --}}
+<!--jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="/js/breedresults.js"></script>
+{{!-- javascript tags --}}
+<script src="/js/breedpage.js"></script>

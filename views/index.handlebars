@@ -1,11 +1,4 @@
-  <nav>
-    <div class="nav-wrapper amber darken-2">
-      <a class="brand-logo">Doggo</a>
-    </div>
-  </nav>
-<div class="image-container1">
-  <h4 class="jawn">Find a dog breed that suits your personality!</h4>
-</div>
+  
 
 <div class="container">
   <div class="row">
@@ -27,10 +20,10 @@
             <select id="{{this.id}}">
               <option value="" disabled selected>Choose your option</option>
               {{#each this.Choices}}
-              <option value="{{this.id}}">{{this.choice}}</option>
+              <option value="{{this.value}}">{{this.choice}}</option>
               {{/each}}
             </select>
-            <label class="question" data="{{this.id}}">{{this.question}}</label>
+            <label class="question" data="{{this.question}}">{{this.question}}</label>
           </div>
         </div>
         {{/each}}
@@ -43,6 +36,8 @@
   </div>
 </div>
 
+<!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 {{!-- javascript tags --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+{{!-- <script src="/js/survey.js"></script> --}}
 <script src="/js/survey.js"></script>

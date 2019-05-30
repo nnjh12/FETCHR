@@ -13,8 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       question9: DataTypes.INTEGER,
       question10: DataTypes.INTEGER,
       question11: DataTypes.INTEGER,
-      question12: DataTypes.INTEGER,
-      question13: DataTypes.INTEGER
+      question12: DataTypes.INTEGER
     },
     {
       timestamps: false

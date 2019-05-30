@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     "Choice",
     {
       // question_id: DataTypes.INTEGER,
-      choice: DataTypes.STRING
+      choice: DataTypes.STRING,
+      value: DataTypes.INTEGER
     },
     {
       timestamps: false

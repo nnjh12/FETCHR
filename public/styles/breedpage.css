@@ -1,0 +1,27 @@
+#headerImage{
+  width:70%;
+}
+
+#headertext{
+  font-size: 3rem;
+}
+.imageCropper {
+  width: 20rem;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin:2rem;
+}
+.dogImage {
+display: inline;
+margin: 0 auto;
+margin-left: -25%; /*centers the image*/
+height: 100%;
+width: auto;
+}
+
+.stars{
+  width: 10rem;
+  margin-left: 2%;
+}

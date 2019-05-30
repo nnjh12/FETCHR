@@ -12,7 +12,7 @@ $(document).ready(function() {
     // var _d = instance.getSelectedValues();
     console.log("I have been clicked");
 
-    var breedResults = [1, 3, 5];
+    
 
     var newSurvey = {
       name: $("#name").val(),
@@ -32,37 +32,16 @@ $(document).ready(function() {
       question13: parseInt($("#13").val())
     };
 
-    // add the breed results in object
-    for (var i = 0; i < breedResults.length; i++) {
-      newSurvey["breed" + (i + 1)] = breedResults[i];
-    }
-
     console.log(newSurvey);
     // Send the POST request
     $.ajax("/api/survey", {
       type: "POST",
       data: newSurvey
-    }).then(function() {
-      console.log("added new user and survey");
-      // Reload the page to get the updated list
-      // res.redirect("/");
+    }).then(function(id) {
+      console.log(id);
+      window.location.href = `/breedresults/${id.surveyId}`;
     });
 
-    // for (var i = 0; i < breedResults.length; i++) {
-    //   var newData = {
-    //     user_id: userId,
-    //     survey_id: surveyId,
-    //     BreedId: breedResults[i]
-    //   };
-    //   $.ajax("/api/breedresult", {
-    //     type: "POST",
-    //     data: newData
-    //   }).then(function() {
-    //     console.log("added new breed results");
-    //   });
-    //   // .then(function() {
-    //   //   window.location.href = "/breedresults";
-    //   // });
-    // }
   });
+
 });
