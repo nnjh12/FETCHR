@@ -56,7 +56,7 @@ module.exports = function (app) {
         console.log("zipcode is" + zipcode)
         console.log(req.params.breed);
       
-        breed = req.params.breed.replace(/ /g, "%20")
+        var breed = req.params.breed.replace(/ /g, "%20")
     var hbsDogs = {
       surveyId : req.params.surveyid,
       dogs: []
