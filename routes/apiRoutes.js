@@ -15,6 +15,13 @@ module.exports = function(app) {
     });
   });
 
+  // Post users data
+  app.post("/profile", function(req, res) {
+    db.User.create(req.body).then(function(data) {
+      res.json(data);
+    });
+  });
+
   // Get survey data of specific user
   app.get("/api/survey/:userId", function(req, res) {
     db.Survey.findAll({ where: { id: req.params.userId } }).then(function(
@@ -23,6 +30,14 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.get("/profile", function(req, res){
+    db.Users.findAll({
+      
+    }).then(function(data) {
+      res.json(data);
+    })
+  })
 
   // Post survey data
   app.post("/api/survey", function(req, res) {
