@@ -50,9 +50,9 @@ module.exports = function (app) {
         where: {
           id: req.params.userid
         }
-      }) .then(function (response) {
-        console.log(response);
-        var zipcode = response[0].zipcode;
+      }) .then(function (user) {
+        console.log(user);
+        var zipcode = user[0].zipcode.toString();
         console.log("zipcode is" + zipcode)
         console.log(req.params.breed);
         
