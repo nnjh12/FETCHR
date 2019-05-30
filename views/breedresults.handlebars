@@ -38,7 +38,7 @@
       <div class="row buttonRow">
         <div class="col s12 m12">
           <button class="btn waves-effect waves-light findButton" type="submit" name="action" id="findAdoption"
-            data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
+            data-survey = "{{../survey.id}}" data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
         </div>
       </div>
     </div>
@@ -63,11 +63,10 @@
 
               {{/each}}
             </ul>
-          </div>
-          <div class="card-action">
-            <button class="btn waves-effect waves-light findButton" type="submit" name="action" id="findAdoption"
-              data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
-          </div>
+        </div>
+        <div class="card-action">
+           <button class="btn waves-effect waves-light findButton" type="submit" name="action" id="findAdoption"
+              data-survey = "{{../survey.id}}" data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
         </div>
       </div>
     </div>
