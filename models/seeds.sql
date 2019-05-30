@@ -1,6 +1,11 @@
+INSERT INTO users (name, zipcode)
+VALUES ("Alec", 19146),
+        ("Ben Franklin", 19103),
+        ("Will Smith", 19119);
 
-INSERT INTO surveys (userId, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12)
-VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3),
+
+INSERT INTO surveys (question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, userId)
+VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, ),
         (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3),
         (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3);  
 
