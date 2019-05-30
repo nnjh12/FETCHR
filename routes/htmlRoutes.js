@@ -88,16 +88,27 @@ module.exports = function (app) {
 
       // console.log(responseDogs);
 
+      // console.log(res.animals[i].photos[0].medium);
+      var dogPicUrl; 
 
+      
 
 
       // console.log(hbsDogs.dogs);
 
       for (var i = 0; i < responseDogs.length; i++) {
-        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
+        if (res.animals[i].photos[0].medium) {
+          console.log('pic exists')
+          dogPicUrl = res.animals[i].photos[0].medium;
+        } else {
+          console.log('no pic exists');
+          dogPicUrl = 'images/dog_placeholder.jpg'
+        };
+
+        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, dogPicUrl, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
   
-      console.log(hbsDogs.dogs, "Dogs");
+      // console.log(hbsDogs.dogs, "Dogs");
 
       response.render("adopt", hbsDogs);
 
