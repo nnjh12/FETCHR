@@ -9,17 +9,17 @@
     </div>
   </div>
   <div class="row">
-    {{#each returnedArray.data}}
+    {{#each data}}
     <div class="col s12 m12">
     <div class="card horizontal valign-wrapper">
       <div class="imageCropper">
-        <img class="dogImage" src={{Breed.image}}>
+        <img class="dogImage" src={{this.image}}>
       </div>
       <div class="card-stacked">
-        <span class="card-title">{{Breed.breed_name}}</span>
+        <span class="card-title">{{this.breed_name}}</span>
         <div class="card-content">
           <ul>
-              {{#each Breed.Attributes}}
+              {{#each this.Attributes}}
               
               <li class="attributeAndScore valign-wrapper" data-score="{{this.score}}">{{this.attribute}} : <img class="stars" data-score="{{this.score}}" src=""></li>
               
@@ -27,8 +27,8 @@
             </ul>
         </div>
         <div class="card-action">
-           <button class="btn waves-effect waves-light" type="submit" name="action" id="findAdoption"
-              data-breed="{{Breed.breed_name}}">Find</button>
+           <button class="btn waves-effect waves-light findButton" type="submit" name="action" id="findAdoption"
+              data-user="{{../survey.UserId}}" data-breed="{{this.breed_name}}">Find</button>
         </div>
       </div>
     </div>

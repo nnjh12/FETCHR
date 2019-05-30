@@ -5,6 +5,7 @@ var petfinder = require("./petfinderRoutes");
 const Entities = require('html-entities').XmlEntities;
 const entities = new Entities();
 
+
 module.exports = function (app) {
   // Load index page
 
@@ -13,11 +14,7 @@ module.exports = function (app) {
       .findAll({
         include: [db.Choice]
       })
-      .then(function(dbQuestions) {
-        console.log(dbQuestions);
-        // console.log("____________________________________________________")
-        // console.log(dbQuestions[0].choices);
-
+      .then(function (dbQuestions) {
         res.render("index", {
           questionsAndChoices: dbQuestions
         });
@@ -41,16 +38,29 @@ module.exports = function (app) {
   // });
 
   // Load adopt results page
-  app.get("/adoptresults", function (req, response) {
+  app.get("/adoptresults/:breed/:userid", function (req, response) {
     // petfinderRequest parameters are hardcoded for now, but will take in survey data.
     // var dogs = petfinder.petfinderRequest();
     // console.log(dogs);
     // console.log(petfinder.petfinderRequest());
+
+    //Get the user zipcode from the param
+    db.User
+      .findAll({
+        where: {
+          id: req.params.userid
+        }
+      }) .then(function (response) {
+        console.log(response);
+        var zipcode = response[0].zipcode;
+        console.log("zipcode is" + zipcode)
+        console.log(req.params.breed);
+        
     var hbsDogs = {
       dogs: []
     }
 
-    petfinder.petfinderRequest(19125, 5, "beagle").then(function (res) {
+    petfinder.petfinderRequest(zipcode, 25, req.params.breed).then(function (res) {
 
       class Dog {
         constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
@@ -70,28 +80,29 @@ module.exports = function (app) {
 
       var responseDogs = [];
 
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < res.animals.length; i++) {
         responseDogs.push(res.animals[i]);
       }
 
-      console.log(responseDogs);
+      // console.log(responseDogs);
 
 
-      
+
 
       // console.log(hbsDogs.dogs);
-      
+
       for (var i = 0; i < responseDogs.length; i++) {
         hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, res.animals[i].photos[0].medium, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
-      
-      // console.log(hbsDogs.dogs, "Dogs");
+  
+      console.log(hbsDogs.dogs, "Dogs");
+
       response.render("adopt", hbsDogs);
-      
+
     })
     // console.log(hbsDogs, "after")
 
-
+  });
   });
 
   
@@ -122,8 +133,8 @@ var userSurvey = db.Survey
 doggos = responses[0];
 survey = responses[1];
 
-console.log(doggos);
-console.log(survey);
+// console.log(doggos);
+// console.log(survey);
 
 var questionToAttributeMap = {
 question1: 'Apartment Living',
@@ -178,7 +189,7 @@ function dogsInOrder(doggos, perfectDog){
       }
   
       var allSortedDogs =  _.sortBy( orderedDoggos, 'score' );
-      console.log(allSortedDogs)
+      // console.log(allSortedDogs)
       var firstSixDogs = [];
 
       for (var i = 0; i <6; i++){
@@ -208,29 +219,16 @@ db.Breed
   // [db.Attribute],
 })
 .then(function(data) {
-  // var dogsandAttributes = [];
-  // for (var i = 0; i < data.length; i++){
-  //     var topAttributes = [];
-  //   for (var z = 0; z < data[i].Attributes.length; z++ ){
-  //     if (data[i].Attributes[z].score > 3){
-  //       topAttributes.push(data[i].Attributes[z])
-  //     }
-  //   }
-    
-  //   var finishedDog = {
-  //     breed_name : $(this).breed_name,
-  //     Attributes : {}
-  //   }
-
-  // }
+  
   // console.log(data)
   // console.log(survey)
-  // var returnedArray = {
-  //   data:data, 
-  //   survey:survey
-  //  }
-   console.log(returnedArray);
-  res.render("breedresults", returnedArray);
+  var dogMatchAndSurvey = {
+    data:data, 
+    survey:survey
+   }
+  //  console.log(dogMatchAndSurvey.data[0])
+  //  console.log(dogMatchAndSurvey);
+  res.render("breedresults", dogMatchAndSurvey);
 }); 
 });
 

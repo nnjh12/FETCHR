@@ -1,6 +1,13 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // Get all the users data
+  app.get("/api/user", function(req, res) {
+    db.User.findAll().then(function(data) {
+      res.json(data);
+    });
+  });
+
   // Get specific users data
   app.get("/api/user/:userId", function(req, res) {
     db.User.findAll({ where: { id: req.params.userId } }).then(function(data) {
@@ -24,10 +31,11 @@ module.exports = function(app) {
       name: req.body.name,
       zipcode: req.body.zipcode
     };
+    var surveyId;
     console.log(db.User);
     db.User.create(createNewUser).then(function(result) {
       // Send back the ID of the new user
-      // console.log(result.id);
+      console.log(result.id);
       var createSurvey = {
         question1: req.body.question1,
         question2: req.body.question2,
@@ -46,7 +54,6 @@ module.exports = function(app) {
       db.Survey.create(createSurvey).then(function(result) {
         // Send back the ID of the new user
         surveyId = result.id;
-        console.log(surveyId);
         res.json({ surveyId: surveyId });
       });
     });

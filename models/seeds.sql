@@ -8,13 +8,6 @@ VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3),
         (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3),
         (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3);  
 
-INSERT INTO breed_matches (user_id, survey_id)
-VALUES ( 1, 1),
-        (1, 2),
-        (1, 3), 
-        (2, 4),
-        (2, 5);       
-
 INSERT INTO questions (question)
 VALUES ("What type of home do you live in?"),
        ("What type of environment do you live in?"),
@@ -217,6 +210,17 @@ INSERT INTO breeds (breed_name,image) VALUES
     ('yorkipoo',"https://g77v3827gg2notadhhw9pew7-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/bigstock-Cute-Yorkie-Poo-1174843-1024x732.jpg"),
     ('yorkshire terrier',"https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_1312.jpg")
 ;
+
+INSERT INTO breedMatches (userId, surveyId, breedId)
+VALUES (1, 1, 1),
+        (1, 1, 2),
+        (1, 1, 3), 
+        (2, 2, 4),
+        (2, 2, 5),
+        (2, 2, 6),
+        (3, 3, 7),
+        (3, 3, 8),
+        (3, 3, 9);     
 
 
 

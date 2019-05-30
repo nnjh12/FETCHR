@@ -9,9 +9,21 @@ Light blue - #4dbedc
 
  */
 
- * {
-   color: #111;
- }
+/* Adopt results header */
+.adopt-page-header {
+  
+}
+
+.adopt-header-accent {
+  font-family: 'Indie Flower', cursive;
+  color: #ff6120;
+}
+
+.adopt-header-divider {
+  border-color: #010449;
+  border-width: .5px;
+  /* opacity: 0.5; */
+}
 
 .list-group-item {
   line-height: 2.5;
@@ -26,16 +38,31 @@ Light blue - #4dbedc
   margin: 20px;
 }
 
-.page-header, .card-header, .card-text {
+.button-custom {
+  background-color: #39579d;
+}
+
+.adopt-page-header, .card-header, .card-text {
   text-align: center;
 }
 
 .card-container {
-  display:flex; 
-  flex-wrap:wrap;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-custom {
+  margin-left: 0 !important;
 }
 
 /* Front of cards */
+.card-custom {
+  height: 500px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
 .card-image-container {
   width: 100%;
   height: 240px;
@@ -98,7 +125,8 @@ Light blue - #4dbedc
 }
 
 .content-overlay {
-  background-color: rgba(255,187,40,0.9);
+  background-image: linear-gradient(rgba(255,187,40,0.9) 30%, rgba(255,187,40,1));
+  /* background-color: rgba(255,187,40,0.9); */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -117,12 +145,26 @@ Light blue - #4dbedc
   opacity: 1;
 }
 
-.overlay-dog-name {
-  color: #39579d;
+.custom-fab {
+  background-color: #39579d;
 }
 
-.card-text-custom {
+.custom-fab:hover {
+  background-color: #4dbedc;
+}
+
+.overlay-dog-name, .dog-name {
+  color: #39579d;
+  font-family: 'Indie Flower', cursive;
+}
+
+.card-text-custom, .card-text-bold, .adopt-page-header {
   color: #010449;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.card-text-bold {
+  font-weight: 700;
 }
 
 .card-button-custom {
@@ -144,14 +186,17 @@ Light blue - #4dbedc
   position: absolute;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
+  border-top: 4px solid #ff6120;
 }
+
 body, html {
   height: 100%;
 
 }
-.subheader {
+
+/* .subheader {
  
-}
+} */
 
 .image-container1{
   height: 0;

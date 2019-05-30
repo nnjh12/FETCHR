@@ -23,4 +23,24 @@ $(document).ready(function() {
         break;
     }
   });
+
+$(".findButton").click(function(event) {
+  console.log("find has been been clicked")
+    var breed = $(this).attr("data-breed")
+    console.log(breed)
+    var userId= $(this).attr("data-user")
+    console.log(userId)
+  
+
+  
+  // Send the POST request
+  // $.ajax("/adoptresults", {
+  //   type: "GET",
+  //   data: findSubmit
+  // }).then(function(id) {
+  //   console.log(id);
+    window.location.href = `/adoptresults/${breed}/${userId}`;
+  });
 });
+
+
