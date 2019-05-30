@@ -16,7 +16,7 @@ module.exports = function(app) {
   });
 
   // Post users data
-  app.post("/api/user", function(req, res) {
+  app.post("/profile", function(req, res) {
     db.User.create(req.body).then(function(data) {
       res.json(data);
     });
@@ -31,6 +31,14 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.get("/profile", function(req, res){
+    db.Users.findAll({
+      
+    }).then(function(data) {
+      res.json(data);
+    })
+  })
 
   // Post survey data
   app.post("/api/survey", function(req, res) {

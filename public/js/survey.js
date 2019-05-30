@@ -1,5 +1,8 @@
 $(document).ready(function() {
   $("select").formSelect();
+  $("google-oauth").click(function(event){
+    
+  })
 
   // var instance = M.FormSelect.getInstance(elem);
   // instance.getSelectedValues();
