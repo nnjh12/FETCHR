@@ -92,8 +92,6 @@ module.exports = function (app) {
       var dogPicUrl; 
 
       
-
-
       // console.log(hbsDogs.dogs);
 
       for (var i = 0; i < responseDogs.length; i++) {
