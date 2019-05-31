@@ -49,7 +49,7 @@ $(document).ready(function() {
     console.log(validValues);
     console.log(surveyValues);
    
-    if (validValues.length === surveyValues.length) {
+    if (validValues.length === surveyValues.length && !isNaN(newSurvey.zipcode)) {
       console.log('hi');
       
       
@@ -63,7 +63,9 @@ $(document).ready(function() {
       });
     } else {
       console.log('missing answer');
-      $('#missing-question-text').append('Please make sure you answered all the questions!')
+      // Clear out any text in #missing-question-text, then append. This avoids duplicates on multiple clicks.
+      $('#missing-question-text').empty().append('Please make sure you answered all the questions!');
+      // $('#missing-question-text').append('Please make sure you answered all the questions!');
     }
     
       
