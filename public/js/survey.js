@@ -16,7 +16,7 @@ $(document).ready(function() {
     console.log("I have been clicked");
 
     
-
+// Get values from survey form
     var newSurvey = {
       name: $("#name").val(),
       zipcode: $("#zipcode").val(),
@@ -36,15 +36,39 @@ $(document).ready(function() {
     };
 
     console.log(newSurvey);
-    // Send the POST request
-    $.ajax("/api/survey", {
-      type: "POST",
-      data: newSurvey
-    }).then(function(id) {
-      console.log(id);
-      window.location.href = `/breedresults/${id.surveyId}`;
-    });
+    // Push values to an array we can iterate through.
+    var surveyValues = [];
+    var validValues = [];
+    surveyValues.push(newSurvey.question1, newSurvey.question2, newSurvey.question3, newSurvey.question4, newSurvey.question5, newSurvey.question6, newSurvey.question7, newSurvey.question8, newSurvey.question9, newSurvey.question10, newSurvey.question11, newSurvey.question12);
 
+    for (let i = 0; i < surveyValues.length; i++) {
+      if (!isNaN(surveyValues[i])) {
+        validValues.push(surveyValues[i])
+      }
+    }
+    console.log(validValues);
+    console.log(surveyValues);
+   
+    if (validValues.length === surveyValues.length && !isNaN(newSurvey.zipcode)) {
+      console.log('hi');
+      
+      
+      // Send the POST request
+      $.ajax("/api/survey", {
+        type: "POST",
+        data: newSurvey
+      }).then(function(id) {
+        console.log(id);
+        window.location.href = `/breedresults/${id.surveyId}`;
+      });
+    } else {
+      console.log('missing answer');
+      // Clear out any text in #missing-question-text, then append. This avoids duplicates on multiple clicks.
+      $('#missing-question-text').empty().append('Please make sure you answered all the questions!');
+      // $('#missing-question-text').append('Please make sure you answered all the questions!');
+    }
+    
+      
   });
 
 });

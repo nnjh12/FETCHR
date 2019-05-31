@@ -90,10 +90,15 @@ module.exports = function (app) {
 
             // console.log(responseDogs);
 
+<<<<<<< HEAD
 
             // console.log(res.animals[i].photos[0].medium);
             var dogPicUrl;
 
+=======
+      
+      // console.log(hbsDogs.dogs);
+>>>>>>> fd7561ddb5f92c9a927ea689b048268747645f18
 
 
 

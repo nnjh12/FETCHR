@@ -8,6 +8,12 @@ Light blue - #4dbedc
 
 
  */
+/* Survey page */
+ #missing-question-text {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+ }
 
 /* Adopt results header */
 .adopt-page-header {
