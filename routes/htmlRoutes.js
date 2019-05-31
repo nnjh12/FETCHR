@@ -62,7 +62,7 @@ module.exports = function (app) {
       dogs: []
     }
 
-    petfinder.petfinderRequest(zipcode, 25, breed).then(function (res,err) {
+    petfinder.petfinderRequest(zipcode, 25, breed).then(function (res) {
       
       class Dog {
         constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
