@@ -29,6 +29,7 @@
 
     {{!-- Row --}}
     <div class="row card-container">
+        {{if dogs}}
         {{#each dogs}}
         {{!-- Card --}}
         <div class="col s6 m4 l3 col-custom">
@@ -64,6 +65,14 @@
             </div>
         </div>
         {{/each}}
+         
+        {{else}}
+        <h1>Looks like all of these friends have found furever home!</h1>
+        <a id="breedResults" class="waves-effect waves-light btn-flat btn-custom" data-survey="{{surveyId}}"><i
+            class="inline-icon material-icons">arrow_back</i>
+        Back to Breeds</a>
+        {{/else}}
+       {{/if}}
     </div>
 </div>
 <!--jquery-->

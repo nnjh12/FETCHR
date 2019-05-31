@@ -62,8 +62,8 @@ module.exports = function (app) {
       dogs: []
     }
 
-    petfinder.petfinderRequest(zipcode, 25, breed).then(function (res) {
-
+    petfinder.petfinderRequest(zipcode, 25, breed).then(function (res,err) {
+      
       class Dog {
         constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
           this.name = entities.decode(name);
