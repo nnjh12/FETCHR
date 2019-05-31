@@ -81,6 +81,7 @@ module.exports = function (app) {
       }
 
       var responseDogs = [];
+      
 
       for (let i = 0; i < res.animals.length; i++) {
         responseDogs.push(res.animals[i]);
@@ -105,7 +106,9 @@ module.exports = function (app) {
 
         hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, dogPicUrl, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
       }
-  
+      // if(err){
+      //   console.log("you have an error")
+      // }
       // console.log(hbsDogs.dogs, "Dogs");
 
       response.render("adopt", hbsDogs);
@@ -113,6 +116,8 @@ module.exports = function (app) {
     })
     // console.log(hbsDogs, "after")
 
+  }).catch((err)=> {
+    console.log(err);
   });
   });
 
