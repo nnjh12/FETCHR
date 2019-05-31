@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   var BreedMatch = sequelize.define(

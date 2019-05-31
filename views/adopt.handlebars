@@ -8,11 +8,13 @@
         </ul>
     </div>
 </nav>
+{{#if dogs}}
 <div class="nav-container">
     <a id="breedResults" class="waves-effect waves-light btn-flat btn-custom" data-survey="{{surveyId}}"><i
             class="inline-icon material-icons">arrow_back</i>
         Back to Breeds</a>
 </div>
+
 
 <div class="container">
     <h3 class="adopt-page-header">Check out these <span class="adopt-header-accent">adoptable</span> dogs!</h3>
@@ -64,9 +66,24 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <div class="container">
+            <h3 class="adopt-page-header">There is no adoptable <span
+                    class="adopt-header-accent capitalize">{{breed}}</span>!</h3>
+            <div class="top-copy-container">
+                <p>There is no adoptable <span class="capitalize">{{breed}}</span> in shelters near you!</p>
+                <p>If you'd like to see another breed, go back to breeds.</p>
+                <p>If you'd like to retake the survey, click the start over button.</p>
+
+            </div>
+            <div class="button-container">
+                <a id="breedResults" class="waves-effect waves-light btn button-custom" data-survey="{{surveyId}}">Back to Breeds</a>
+                <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
+            </div>
+            {{/if}}
+        </div>
     </div>
-</div>
-<!--jquery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-{{!-- javascript tags --}}
-<script src="/js/adoptpage.js"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {{!-- javascript tags --}}
+    <script src="/js/adoptpage.js"></script>
