@@ -63,50 +63,63 @@ module.exports = function (app) {
     }
 
     petfinder.petfinderRequest(zipcode, 25, breed).then(function (res) {
-
-      class Dog {
-        constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
-          this.name = entities.decode(name);
-          this.age = age;
-          this.photo = photo;
-          this.gender = gender;
-          this.status = status;
-          this.website = website;
-          this.phone = phone;
-          this.address = address;
-          this.city = city;
-          this.state = state;
-          this.description = entities.decode(description);
+      try {
+        console.log("TRY BLOCK")
+        class Dog {
+          constructor(name, age, photo, gender, status, website, phone, address, city, state, description) {
+            this.name = entities.decode(name);
+            this.age = age;
+            this.photo = photo;
+            this.gender = gender;
+            this.status = status;
+            this.website = website;
+            this.phone = phone;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.description = entities.decode(description);
+          }
+        }
+  
+        var responseDogs = [];
+  
+        for (let i = 0; i < res.animals.length; i++) {
+          responseDogs.push(res.animals[i]);
+        }
+  
+        // console.log(responseDogs);
+        
+  
+        // console.log(res.animals[i].photos[0].medium);
+        var dogPicUrl; 
+  
+        
+  
+  
+        // console.log(hbsDogs.dogs);
+  
+        for (var i = 0; i < responseDogs.length; i++) {
+          if (res.animals[i].photos[0].medium) {
+            console.log('pic exists')
+            dogPicUrl = res.animals[i].photos[0].medium;
+          } else {
+            console.log('no pic exists');
+            dogPicUrl = 'images/dog_placeholder.jpg'
+          };
+  
+          hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, dogPicUrl, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
         }
       }
-
-      var responseDogs = [];
-
-      for (let i = 0; i < res.animals.length; i++) {
-        responseDogs.push(res.animals[i]);
+      catch(err) {
+        console.log("CATCH BLOCK")
+        hbsDogs = {
+          surveyId : req.params.surveyid,
+          dogs: []
+        }
+        return response.render("adopt", hbsDogs);
       }
-
-      // console.log(responseDogs);
-
-      // console.log(res.animals[i].photos[0].medium);
-      var dogPicUrl; 
 
       
-
-
-      // console.log(hbsDogs.dogs);
-
-      for (var i = 0; i < responseDogs.length; i++) {
-        if (res.animals[i].photos[0].medium) {
-          console.log('pic exists')
-          dogPicUrl = res.animals[i].photos[0].medium;
-        } else {
-          console.log('no pic exists');
-          dogPicUrl = 'images/dog_placeholder.jpg'
-        };
-
-        hbsDogs.dogs.push(new Dog(res.animals[i].name, res.animals[i].age, dogPicUrl, res.animals[i].gender, res.animals[i].status, res.animals[i].url, res.animals[i].contact.phone, res.animals[i].contact.address.address1, res.animals[i].contact.address.city, res.animals[i].contact.address.state, res.animals[i].description))
-      }
   
       // console.log(hbsDogs.dogs, "Dogs");
 
