@@ -40,11 +40,14 @@ Light blue - #4dbedc
 
 .button-custom {
   background-color: #39579d;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
+  padding:10px;
 }
 
 .adopt-page-header, .card-header, .card-text, .top-copy-container {
@@ -221,6 +224,10 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffa000 ;
+}
+
+.upperCase{
+  text-transform: uppercase;
 }
 
 .image-container {
