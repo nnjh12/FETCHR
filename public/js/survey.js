@@ -1,13 +1,45 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  var height = $(window).height()
+  console.log(height);
+
+  $(window).resize(function () {
+    $("#getStartedSection").css('min-height', height);
+  });
+
+
+
+  // $(window).on('scroll', function(){
+  //   var winT = $(window).scrollTop(),
+  //     winH = $(window).height(),
+  //     skillsT = skillsDiv.offset().top;
+  //   if(winT + winH  > skillsT){
+  //     $('.skillbar').each(function(){
+  //       $(this).find('.skillbar-bar').animate({
+  //         width:$(this).attr('data-percent')
+  //       },3000);
+  //     });
+  //   }
+  // });
+
+  $("#startButton").click(function (event) {
+    console.log("clicked")
+    var element = document.getElementById("surveySection");
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+
+
+
+
   $("select").formSelect();
-  $("google-oauth").click(function(event){
-    
+  $("google-oauth").click(function (event) {
+
   })
 
   // var instance = M.FormSelect.getInstance(elem);
   // instance.getSelectedValues();
 
-  $("#submitSurvey").click(function(event) {
+  $("#submitSurvey").click(function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -15,8 +47,8 @@ $(document).ready(function() {
     // var _d = instance.getSelectedValues();
     console.log("I have been clicked");
 
-    
-// Get values from survey form
+
+    // Get values from survey form
     var newSurvey = {
       name: $("#name").val(),
       zipcode: $("#zipcode").val(),
@@ -48,16 +80,16 @@ $(document).ready(function() {
     }
     console.log(validValues);
     console.log(surveyValues);
-   
+
     if (validValues.length === surveyValues.length && !isNaN(newSurvey.zipcode)) {
       console.log('hi');
-      
-      
+
+
       // Send the POST request
       $.ajax("/api/survey", {
         type: "POST",
         data: newSurvey
-      }).then(function(id) {
+      }).then(function (id) {
         console.log(id);
         window.location.href = `/breedresults/${id.surveyId}`;
       });
@@ -67,8 +99,8 @@ $(document).ready(function() {
       $('#missing-question-text').empty().append('Please make sure you answered all the questions!');
       // $('#missing-question-text').append('Please make sure you answered all the questions!');
     }
-    
-      
+
+
   });
 
 });
