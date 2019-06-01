@@ -5,8 +5,8 @@ VALUES ("Alec", 19146),
 
 
 INSERT INTO surveys (question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, userId)
-VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, ),
-        (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3),
+VALUES (1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 1),
+        (2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 2),
         (3, 1, 2, 3, 1, 2, 2, 2, 2, 3, 1, 2, 3);  
 
 INSERT INTO questions (question)
@@ -68,7 +68,6 @@ INSERT INTO breeds (breed_name,image) VALUES
     ('afghan hound',"https://images.dog.ceo/breeds/hound-afghan/n02088094_980.jpg"),
     ('akita',"https://images.dog.ceo/breeds/akita/Akita_Inu_dog.jpg"),
     ('alaskan malamute',"https://images.dog.ceo/breeds/malamute/n02110063_9360.jpg"),
-    ('american bulldog',"https://vetstreet.brightspotcdn.com/dims4/default/a473f63/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fc5%2Fc9%2Fd3e1617243a0af32689019bba22c%2Famerican-bulldog-ap-04q7il-645-x-380.jpg"),
     ('american eskimo dog',"https://images.dog.ceo/breeds/eskimo/n02109961_4054.jpg"),
     ('american foxhound',"https://vetstreet-brightspot.s3.amazonaws.com/19/f231d0a41b11e087a80050568d634f/file/American-Foxhound-3-645mk062311.jpg"),
     ('pit bull terrier',"https://images.dog.ceo/breeds/terrier-american/n02093428_2592.jpg"),
@@ -80,7 +79,7 @@ INSERT INTO breeds (breed_name,image) VALUES
     ('basenji',"https://images.dog.ceo/breeds/basenji/n02110806_3531.jpg"),
     ('basset hound',"https://images.dog.ceo/breeds/hound-basset/n02088238_9626.jpg"),
     ('beagle',"https://images.dog.ceo/breeds/beagle/n02088364_2143.jpg"),
-    ('bearded collie',"https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi475nux77iAhUFZN8KHR6MA-kQjRx6BAgBEAU&url=https%3A%2F%2Fwww.akc.org%2Fdog-breeds%2Fbearded-collie%2F&psig=AOvVaw0jHrdjZNdJBHbMHLn5Vjuq&ust=1559144377619327"),
+    ('bearded collie',"https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13000856/Bearded-Collie-On-White-01.jpg"),
     ('bernese mountain dog',"https://images.dog.ceo/breeds/mountain-bernese/n02107683_6580.jpg"),
     ('bichon frise',"https://images.unsplash.com/photo-1537123547273-e59f4f437f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"),
     ('black and tan coonhound',"https://images.dog.ceo/breeds/coonhound/n02089078_465.jpg"),
@@ -261,6 +260,19 @@ INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breed
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'alaskan malamute'), 'Trainability',4);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'alaskan malamute'), 'Energy Level',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'alaskan malamute'), 'Exercise Needs',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Apartment Living',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Novice Owners',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Sensitivity Level',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Independent',1);
+
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Affectionate',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Kid Friendly',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Dog Friendly',2);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Shedding',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Size',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Trainability',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Energy Level',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american bulldog'), 'Exercise Needs',4);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american eskimo dog'), 'Apartment Living',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american eskimo dog'), 'Novice Owners',4);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'american eskimo dog'), 'Sensitivity Level',4);
@@ -405,18 +417,18 @@ INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breed
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bearded collie'), 'Trainability',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bearded collie'), 'Energy Level',4);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bearded collie'), 'Exercise Needs',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Apartment Living',1);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Novice Owners',2);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Sensitivity Level',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Independent',1);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Affectionate',5);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Kid Friendly',5);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Dog Friendly',3);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Shedding',5);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Size',5);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Trainability',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Energy Level',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain breeds'), 'Exercise Needs',3);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Apartment Living',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Novice Owners',2);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Sensitivity Level',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Independent',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Affectionate',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Kid Friendly',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Dog Friendly',3);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Shedding',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Size',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Trainability',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Energy Level',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bernese mountain dog'), 'Exercise Needs',3);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bichon frise'), 'Apartment Living',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bichon frise'), 'Novice Owners',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'bichon frise'), 'Sensitivity Level',5);
@@ -645,18 +657,18 @@ INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breed
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'cardigan welsh corgi'), 'Trainability',4);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'cardigan welsh corgi'), 'Energy Level',3);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'cardigan welsh corgi'), 'Exercise Needs',3);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Apartment Living',1);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Novice Owners',1);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Sensitivity Level',2);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Independent',2);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Affectionate',5);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Kid Friendly',3);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Dog Friendly',1);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Shedding',3);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Size',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Trainability',2);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Energy Level',4);
-INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard breeds'), 'Exercise Needs',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Apartment Living',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Novice Owners',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Sensitivity Level',2);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Independent',2);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Affectionate',5);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Kid Friendly',3);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Dog Friendly',1);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Shedding',3);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Size',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Trainability',2);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Energy Level',4);
+INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'catahoula leopard dog'), 'Exercise Needs',5);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'caucasian sheep dog'), 'Apartment Living',2);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'caucasian sheep dog'), 'Novice Owners',1);
 INSERT INTO attributes (breedId, attribute, score) VALUES ((SELECT id FROM breeds WHERE breed_name = 'caucasian sheep dog'), 'Sensitivity Level',2);
