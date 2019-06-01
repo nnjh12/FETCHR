@@ -1,13 +1,4 @@
-<nav>
-    <div class="nav-wrapper amber darken-2">
-        <a class="brand-logo">In Your Area</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/auth/login">Login</a></li>
-            <li><a href="/">Home</a></li>
-        </ul>
-    </div>
-</nav>
+
 {{#if dogs}}
 <div class="nav-container">
     <a id="breedResults" class="waves-effect waves-light btn-flat btn-custom" data-survey="{{surveyId}}"><i
@@ -23,7 +14,7 @@
         <p>If you'd like to retake the survey, click the button below.</p>
     </div>
     <div class="button-container">
-        <a class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
+        <a id="startOverButton" class="waves-effect waves-light btn button-custom" href="/">Start Over</a>
     </div>
 
     <hr class="adopt-header-divider">
