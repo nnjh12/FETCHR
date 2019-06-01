@@ -1,19 +1,18 @@
-  <nav>
-    <div class="nav-wrapper amber darken-2">
-      <a class="brand-logo">Doggo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/auth/login">Login</a></li>
-          <li><a href="/">Home</a></li>
-      </ul>
-    </div>
-  </nav>
-
-<button class="google-oauth"><a href="/auth/login">Login</a></button>
-
 <div class="container">
-  <div class="row">
-    <div class="col s8">
+  <section id="getStartedSection">
+  <div class="row center-align">
+    <div class="col s12">
+      <h1 id="introText">Welcome to</h1>
+      <img id="frontLogo" src="../images/fetchrLogo.svg">
+      <p id="frontPageText">Every dog deserves a home, but not every home is right for every dog. Fetchr uses factors such as your lifestyle and personality to match you to the right dog, then find adoptable dogs of that breed in your area! </p>
+      <a id="startButton" class="waves-effect waves-light btn">Get Started</a>
+    </div>
+  </div>
+  </section>
+
+ <section id="surveySection">
+  <div id="surveyRow" class="row">
+    <div id="surveyColumn" class="col s8">
       <form class="breedSurvey">
         <div class="row">
           <div class="input-field col s6">
@@ -39,13 +38,14 @@
         </div>
         {{/each}}
 
-        <button id="submitSurvey" class="btn waves-effect waves-light" type="submit" name="action">
-          Submit
+        <button id="submitSurvey" class="waves-effect waves-light btn-large" type="submit" name="action">
+          Fetch!
         </button>
         <div id="missing-question-text"></div>
       </form>
     </div>
   </div>
+  </section>
 </div>
 
 <!--jquery-->

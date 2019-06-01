@@ -1,0 +1,38 @@
+#introText{
+  margin-top: 2%;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#frontLogo{
+  width:50%;
+}
+
+#frontPageText{
+  width:75%;
+  margin: auto;
+  margin-bottom: 1%;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#startButton{
+  background-color: #ff6120;
+  margin: auto;
+}
+
+ul.dropdown-content.select-dropdown li:not(.disabled) span { 
+  color: #39579d; 
+}
+
+
+#surveyRow{
+  display:flex;
+}
+
+#surveyColumn{
+  margin: auto;
+}
+
+#submitSurvey{
+  background-color: #ff6120;
+  margin: auto;
+}
