@@ -1,8 +1,24 @@
-### Project 2 - Dog Adoption Application
+### FETCHR
 
-## This application produces a survey in which a user answers questions that determine a selection of dog breeds applicable to their personality.
-## Then, the user is brought to a page that utilizes the PetFinder API to display adoptable dogs of specific breeds from a specified distance of a certain zipcode.
+##Purpose 
+The goal of this application is to match a user first with a dog breed type, then with an adoptable dog of the selected type from their local shelter using the PetFinder API.
+The survey asks questions about a users living arrangment, lifestyle, and personality. The answers are then compared to unique attributes,such as "excercise needs", for over 140 dog breeds. The algorithm uses Euclidean Distance to determine the closest match the user's "perfect dog". The dogs are then ordered and the top 6 are displayed to the user to pick from.
 
-## The different utilities involved include Node and Express web servers, information backed by a Sequelize database with MySQL accessed with GET and POST routes.
+##Technology
+- Materialize CSS library
+- Sequelize
+- PetFinder API
 
-## It has been deployed to Heroku: https://penn-project2.herokuapp.com/.
+#Dependencies
+- sql seed file which contains the questions, choices, breeds, and attributes
+- axios
+- body-parser
+- dotenv
+- express
+- express-handlebars
+- express-session
+- html-entities
+- mysql2
+- underscore
+
+It has been deployed to Heroku: https://penn-project2.herokuapp.com/.
