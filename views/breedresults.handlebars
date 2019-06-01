@@ -1,4 +1,4 @@
-  <nav>
+  {{!-- <nav>
     <div class="nav-wrapper amber darken-2">
       <a class="brand-logo">Breed Results</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -7,7 +7,13 @@
           <li><a href="/">Home</a></li>
       </ul>
     </div>
-  </nav>
+  </nav> --}}
+<div class="nav-container">
+    <a id="breedResults" class="waves-effect waves-light btn-flat btn-custom" href="/"><i
+            class="inline-icon material-icons">arrow_back</i>
+        Back to Survey</a>
+</div>
+
 
 <div class="container">
   <div class="row">
@@ -15,7 +21,7 @@
       <img id="headerImage" src="../images/breedresults.svg">
     </div>
     <div class="col s12 m8">
-      <h1 id="headertext">Your Matches Are In!</h1>
+      <h1 id="headertext">Your <span class="adopt-header-accent">Matches</span> Are In!</h1>
       <p id="directionText">Below you will find the best pups for your pack. Click the Find button under each breed to
         search your local shelters for adoptable dogs!</p>
     </div>
@@ -28,10 +34,10 @@
         <img class="dogImage" src={{this.image}}>
       </div>
     </div>
-    <div class="col s12 m6 l7">
+    <div class="col s12 m6 l7 contentHolder">
       <div class="row breedNameRow">
         <div class="col s12 m12 upperCase">
-          <h5>{{this.breed_name}}</h5>
+          <h5 class="breedName"><strong>{{this.breed_name}}</strong></h5>
         </div>
       </div>
       <div class="row attributeRow">

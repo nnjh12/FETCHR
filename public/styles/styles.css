@@ -10,7 +10,7 @@ Light blue - #4dbedc
  */
 /* Survey page */
  #missing-question-text {
-  color: red;
+  color: #ff6120;
   text-align: center;
   margin-top: 10px;
  }
@@ -44,8 +44,9 @@ Light blue - #4dbedc
   margin: 20px;
 }
 
+.button-custom:hover,
 .button-custom {
-  background-color: #39579d;
+  background-color: #ff6120;
   margin-left: 5px;
   margin-right: 5px;
 }
