@@ -20,6 +20,9 @@ Light blue - #4dbedc
   
 }
 
+#startOverButton{
+  background-color: #ff6120;
+}
 .adopt-header-accent {
   font-family: 'Indie Flower', cursive;
   color: #ff6120;
