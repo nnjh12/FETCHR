@@ -44,13 +44,41 @@ width: auto;
 }
 
 .breedRow {
-  border: 1px solid lightgrey;
+  border: 1px solid #FFD38B;
   border-radius: 10px;
 }
 
 .breedNameRow {
   margin-top: 20px;
+  margin-bottom: 15px;
 }
+.breedName {
+  color: #39579d;
+  font-family: 'Indie Flower', cursive;
+}
+.attribute {
+  color: #010449;
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 15px;
+}
+.findButton:hover,
+.findButton:active,
+.findButton:visited,
+.findButton:link,
+.findButton:focus,
+.findButton {
+  background-color: #ff6120;
+  margin-bottom: 10px;
+}
+.breedRow {
+  position: relative;
+}
+.buttonRow {
+  position: absolute;
+  bottom: 0px;
+}
+
+
 /*XLarge: Desktop Devices > 992px */
 @media only screen and (max-width: 1200px) {
   .imageCropper {
@@ -98,6 +126,18 @@ width: auto;
   .breedRow {
     min-width: 250px;
   }
+  .breedNameRow,
+  .buttonRow,
+  .attributeRow {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .breedRow {
+    position: relative;
+  }
+  .buttonRow {
+    position: relative;
+  }  
 }
 @media only screen and (max-width: 390px) {
   .imageCropper {
