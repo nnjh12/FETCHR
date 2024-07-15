@@ -37,4 +37,4 @@ Led front-end and back-end development for:
 
 ## Preview
 You can visit the site [here](https://penn-project2.herokuapp.com/)
-![preview](./assets/preview.png)
+[![preview](./assets/preview.png)](https://penn-project2.herokuapp.com/)
